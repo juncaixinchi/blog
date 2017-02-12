@@ -7,4 +7,9 @@
 
 发现是submodule没有配置好，删除原来的 themes/next/ 文件使用以下代码重新配置
 
-	git submodule add git@github.com:juncaixinchi/hexo-theme-next.git themes/next
+	$ git submodule add git@github.com:juncaixinchi/hexo-theme-next.git themes/next
+
+	$ git submodule init
+
+	$ git submodule update
+
