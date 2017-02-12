@@ -29,7 +29,7 @@ Hexo是依赖于node.js的个人博客生成引擎，可以把基于Markdown的�
 	cd blog
 
 
-开启服务器，默认为 http://127.0.0.1:4000/，可在本地查看
+开启服务器，默认为 http://127.0.0.1:4000/ 可在本地查看
 
 	hexo server
 
@@ -60,7 +60,7 @@ Hexo是依赖于node.js的个人博客生成引擎，可以把基于Markdown的�
 	  type: git
 	  repo: git@github.com:juncaixinchi/Blogs.git
 	  branch: master
-	  
+
 生成静态文件和自动部署
 
 	hexo generate --deploy
