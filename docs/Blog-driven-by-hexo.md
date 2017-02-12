@@ -1,3 +1,16 @@
+### 自动生成静态页面和部署（generate and deploy）
+
+Install hexo-deployer-git.
+
+	$ npm install hexo-deployer-openshift --save
+
+Edit settings.
+
+	deploy:
+	  type: git
+	  repo: git@github.com:juncaixinchi/Blogs.git
+	  branch: master
+
 
 
 ### 在项目的根目录添加子模块
