@@ -1,7 +1,8 @@
 ---
 title: Todo List
 date: 2017-02-12 16:42:01
-tags:
+tags: 
+ - blog
 ---
 
 Todo List

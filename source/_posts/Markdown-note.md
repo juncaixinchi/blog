@@ -1,7 +1,9 @@
 ---
 title: Markdown note
 date: 2017-02-12 16:41:46
-tags:
+tags: 
+    - Markdown
+    - cheat-sheet
 ---
 
 Markdown语法摘要

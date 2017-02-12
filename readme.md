@@ -1,3 +1,14 @@
+---
+title: 基于Hexo+Next+GitHub搭建个人博客
+date: 2017-02-12 16:24:56
+tags: 
+	- Hexo
+	- next
+	- GitHub Pages
+	- blog
+---
+
+
 基于Hexo+Next+GitHub搭建个人博客
 ===
 
@@ -12,6 +23,8 @@ Hexo是依赖于node.js的个人博客生成引擎，可以把基于Markdown的�
 2. 网页部署
 
 	生成的网页存在于public文件夹内，将其部署到Github Pages或其他服务器即可 [Blogs](https://juncaixinchi.github.io/Blogs/)
+
+<!-- more -->
 
 ### 安装和配置Hexo
 
@@ -72,6 +85,11 @@ Hexo是依赖于node.js的个人博客生成引擎，可以把基于Markdown的�
 
 为了描述方便，在以下说明中，将前者称为 站点配置文件， 后者称为 主题配置文件。
 
+#### 设置网站路径，很关键，否则上传至GitHub不能正确加载css和js
+
+	url: https://juncaixinchi.github.io/Blogs/
+	root: /Blogs/
+
 #### 设置 语言
 
 编辑 站点配置文件， 将 language 设置成你所需要的语言。建议明确设置你所需要的语言，例如选用简体中文，配置如下：
@@ -83,6 +101,18 @@ Hexo是依赖于node.js的个人博客生成引擎，可以把基于Markdown的�
 将avatar.png放置在 source/images/ 目录下，站点配置文件新增字段 avatar，配置为：
 	
 	avatar: /images/avatar.png
+
+#### 添加标签
+定位到 Hexo 站点目录下。使用 hexo new page 新建一个页面，命名为 tags ：
+
+	hexo new page tags
+
+文章正文开通定义标签
+
+	title: 文章名称
+	tags:
+	  - Testing
+	  - Another Tag
 
 #### 安装主题
 

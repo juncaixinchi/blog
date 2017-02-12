@@ -1,3 +1,14 @@
+---
+title: 基于Hexo+Next+GitHub搭建个人博客
+date: 2017-02-12 16:24:56
+tags: 
+	- Hexo
+	- next
+	- GitHub Pages
+	- blog
+---
+
+
 基于Hexo+Next+GitHub搭建个人博客
 ===
 
@@ -12,6 +23,8 @@ Hexo是依赖于node.js的个人博客生成引擎，可以把基于Markdown的�
 2. 网页部署
 
 	生成的网页存在于public文件夹内，将其部署到Github Pages或其他服务器即可 [Blogs](https://juncaixinchi.github.io/Blogs/)
+
+<!-- more -->
 
 ### 安装和配置Hexo
 
@@ -71,6 +84,11 @@ Hexo是依赖于node.js的个人博客生成引擎，可以把基于Markdown的�
 在 Hexo 中有两份主要的配置文件，其名称都是 _config.yml。 其中，一份位于站点根目录下，主要包含 Hexo 本身的配置；另一份位于主题目录下，这份配置由主题作者提供，主要用于配置主题相关的选项。
 
 为了描述方便，在以下说明中，将前者称为 站点配置文件， 后者称为 主题配置文件。
+
+#### 设置网站路径，很关键，否则上传至GitHub不能正确加载css和js
+
+	url: https://juncaixinchi.github.io/Blogs/
+	root: /Blogs/
 
 #### 设置 语言
 
