@@ -6,6 +6,9 @@ tags:
 
 Node安装与npm环境变量配置
 ===
+
+<!-- more -->
+
 # Node安装
 
 进入nodejs官方网站下载软件(nodejs.org)

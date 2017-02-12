@@ -324,100 +324,19 @@
 
       
         
-          
-            <h1 id="GitHub-Git-备忘单"><a href="#GitHub-Git-备忘单" class="headerlink" title="GitHub Git 备忘单"></a>GitHub Git 备忘单</h1><h2 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h2><p>git add *</p>
-<p>将所有文件进行快照处理用于版本控制</p>
-<p>git commit -m “upload files”</p>
-<p>将文件快照永久地记录在版本历史中</p>
-<p>git push</p>
-<p>上传所有本地分支commit到GitHub上</p>
-<h2 id="详细内容"><a href="#详细内容" class="headerlink" title="详细内容"></a>详细内容</h2><p>Git是一个开源的分布式版本控制系统，方便你在笔记本或桌面端进行GitHub的操作，这个备忘单总结了常用的Git命令行指令，以便快速查询。</p>
-<p>转载自 <a href="https://services.github.com/on-demand/downloads/zh_CN/github-git-cheat-sheet/" target="_blank" rel="external">https://services.github.com/on-demand/downloads/zh_CN/github-git-cheat-sheet/</a> </p>
-<h3 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h3><p>GitHub提供了包含图形界面的桌面客户端，通过客户端可以完成大部分常用的仓库操作，同时可以自动更新Git的命令行版本，以适应新的场景。</p>
-<p>GitHub for Windows<br><a href="http://windows.github.com" target="_blank" rel="external">http://windows.github.com</a></p>
-<p>GitHub for Mac<br><a href="http://mac.github.com" target="_blank" rel="external">http://mac.github.com</a></p>
-<p>GitHub的Linux和POSIX版本可以在官方的Git SCM网站上获取。</p>
-<p>Git 全平台版<br><a href="http://git-scm.com" target="_blank" rel="external">http://git-scm.com</a></p>
-<h3 id="配置工具"><a href="#配置工具" class="headerlink" title="配置工具"></a>配置工具</h3><p>对所有本地仓库的用户信息进行配置</p>
-<p>$ git config –global user.name “[name]”</p>
-<p>对你的commit操作设置关联的用户名</p>
-<p>$ git config –global user.email “[email address]”</p>
-<p>对你的commit操作设置关联的邮箱地址</p>
-<h3 id="创建仓库"><a href="#创建仓库" class="headerlink" title="创建仓库"></a>创建仓库</h3><p>创建一个新的仓库或者从一个现有的链接获取仓库</p>
-<p>$ git init [project-name]</p>
-<p>创建一个本地的仓库，并设置名字</p>
-<p>$ git clone [url]</p>
-<p>下载一个项目以及它所有的版本历史</p>
-<h3 id="更改"><a href="#更改" class="headerlink" title="更改"></a>更改</h3><p>检查已有的编辑并执行commit操作</p>
-<p>$ git status</p>
-<p>列出所有新建或者更改的文件，这些文件需要被commit</p>
-<p>$ git diff</p>
-<p>展示那些没有暂存文件的差异</p>
-<p>$ git add [file]</p>
-<p>将文件进行快照处理用于版本控制</p>
-<p>$ git diff –staged</p>
-<p>展示暂存文件与最新版本之间的不同</p>
-<p>$ git reset [file]</p>
-<p>将文件移除暂存区，但是保留其内容</p>
-<p>$ git commit -m”[descriptive message]”</p>
-<p>将文件快照永久地记录在版本历史中</p>
-<h3 id="批量更改"><a href="#批量更改" class="headerlink" title="批量更改"></a>批量更改</h3><p>命名一系列commit以及合并已完成的工作</p>
-<p>$ git branch</p>
-<p>列出当前仓库中所有的本地分支</p>
-<p>$ git branch [branch-name]</p>
-<p>建立一个新分支</p>
-<p>$ git checkout [branch-name]</p>
-<p>切换到一个特定的分支上并更新工作目录</p>
-<p>$ git merge [branch-name]</p>
-<p>合并特定分支的历史到当前分支</p>
-<p>$ git branch -d [branch-name]</p>
-<p>删除特定的分支</p>
-<h3 id="重构文件"><a href="#重构文件" class="headerlink" title="重构文件"></a>重构文件</h3><p>重定位并移除版本文件</p>
-<p>$ git rm [file]</p>
-<p>从工作目录中删除文件并暂存此删除</p>
-<p>$ git rm –cached [file]</p>
-<p>从版本控制中移除文件，并在本地保存文件</p>
-<p>$ git mv [file-original] [file-renamed]</p>
-<p>改变文件名并准备commit</p>
-<h3 id="停止追踪"><a href="#停止追踪" class="headerlink" title="停止追踪"></a>停止追踪</h3><p>不包含临时文件和路径</p>
-<p><em>.log build/ temp-</em></p>
-<p>文本文件.gitignore可以防止一些特定的文件进入到版本控制中</p>
-<p>$ git ls-files –others –ignored –exclude-standard</p>
-<p>列出所有项目中忽略的文件</p>
-<h3 id="保存临时更改"><a href="#保存临时更改" class="headerlink" title="保存临时更改"></a>保存临时更改</h3><p>暂存一些未完成的更改</p>
-<p>$ git stash</p>
-<p>临时存储所有修改的已跟踪文件</p>
-<p>$ git stash pop</p>
-<p>重新存储所有最近被stash的文件</p>
-<p>$ git stash list</p>
-<p>列出所有被stash的更改</p>
-<p>$ git stash drop</p>
-<p>放弃所有最近stash的更改</p>
-<h3 id="查阅历史"><a href="#查阅历史" class="headerlink" title="查阅历史"></a>查阅历史</h3><p>浏览并检查项目文件的发展</p>
-<p>$ git log</p>
-<p>列出当前分支的版本历史</p>
-<p>$ git log –follow [file]</p>
-<p>列出文件的版本历史，包括重命名</p>
-<p>$ git diff [first-branch]…[second-branch]</p>
-<p>展示两个不同分支之间的差异</p>
-<p>$ git show [commit]</p>
-<p>输出元数据以及特定commit的内容变化</p>
-<h3 id="撤销commit"><a href="#撤销commit" class="headerlink" title="撤销commit"></a>撤销commit</h3><p>擦除错误并更改历史</p>
-<p>$ git reset [commit]</p>
-<p>撤销所有[commit]后的的commit，在本地保存更改</p>
-<p>$ git reset –hard [commit]</p>
-<p>放弃所有更改并回到某个特定的commit</p>
-<h3 id="同步更改"><a href="#同步更改" class="headerlink" title="同步更改"></a>同步更改</h3><p>注册一个远程的链接，交换仓库的版本历史</p>
-<p>$ git fetch [remote]</p>
-<p>下载远程仓库的所有历史</p>
-<p>$ git merge [remote]/[branch]</p>
-<p>合并远程分支到当前本地分支</p>
-<p>$ git push [remote] [branch]</p>
-<p>上传所有本地分支commit到GitHub上</p>
-<p>$ git pull</p>
-<p>下载书签历史并合并更改</p>
-
-          
+          <h1 id="GitHub-Git-备忘单"><a href="#GitHub-Git-备忘单" class="headerlink" title="GitHub Git 备忘单"></a>GitHub Git 备忘单</h1><h2 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h2><pre><code>git add *
+</code></pre><p>将所有文件进行快照处理用于版本控制</p>
+<pre><code>git commit -m &quot;upload files&quot;
+</code></pre><p>将文件快照永久地记录在版本历史中</p>
+<pre><code>git push
+</code></pre><p>上传所有本地分支commit到GitHub上</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/02/12/Github-Git-Cheat-Sheet/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -655,8 +574,7 @@
 
       
         
-          
-            <h1 id="Markdown语法摘要"><a href="#Markdown语法摘要" class="headerlink" title="Markdown语法摘要"></a>Markdown语法摘要</h1><blockquote>
+          <h1 id="Markdown语法摘要"><a href="#Markdown语法摘要" class="headerlink" title="Markdown语法摘要"></a>Markdown语法摘要</h1><blockquote>
 <h1 id="基本格式"><a href="#基本格式" class="headerlink" title="基本格式"></a>基本格式</h1></blockquote>
 <p>标记+空格+内容</p>
 <blockquote>
@@ -673,78 +591,14 @@
 
 二级标题  
 ---
-</code></pre><blockquote>
-<h1 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h1></blockquote>
-<pre><code>+ 无序列表
-
-- 无序列表
-
-* 无序列表
-
-1. 有序列表
-
-2. 有序列表
-</code></pre><blockquote>
-<h1 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h1><p>引用</p>
-</blockquote>
-<p>MarkdownPad2快捷键为ctrl+q</p>
-<blockquote>
-<h1 id="图片与链接"><a href="#图片与链接" class="headerlink" title="图片与链接"></a>图片与链接</h1></blockquote>
-<ul>
-<li><p>行内式：</p>
-<p>  链接为：<br>  <a href=""></a><br>  例如：<br>  <a href="https://github.com" target="_blank" rel="external">github</a></p>
-</li>
-</ul>
-<p>图片为：<code>![]()</code><br>例如：<code>![icon](https://juncaixinchi.github.io/juncaixinchi.xyz/favicon.ico)</code><br>实例：</p>
-<p><a href="https://github.com" target="_blank" rel="external">github</a></p>
-<p><img src="https://juncaixinchi.github.io/juncaixinchi.xyz/favicon.ico" alt="icon"></p>
-<p>或者</p>
-<pre><code>This is [an example][id] reference-style link.
-
-[id]: http://example.com/  &quot;Optional Title Here&quot;
-</code></pre><p>实例:</p>
-<p>This is <a href="http://example.com/" title="Optional Title Here" target="_blank" rel="external">an example</a> reference-style link.</p>
-<blockquote>
-<h1 id="文本样式"><a href="#文本样式" class="headerlink" title="文本样式"></a>文本样式</h1></blockquote>
-<pre><code>*斜体文本*
-_斜体文本_
-
-**粗体文本**
-__粗体文本__
-</code></pre><p>注意必须前后包围，且不连空格</p>
-<p>样式：</p>
-<p><em>斜体文本</em></p>
-<p><strong>粗体文本</strong></p>
-<blockquote>
-<h1 id="代码框"><a href="#代码框" class="headerlink" title="代码框"></a>代码框</h1></blockquote>
-<pre><code>` code `
-
-Tab或4个空格+code
-</code></pre><blockquote>
-<h1 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h1></blockquote>
-<pre><code>***
-* * *
----
-___
-</code></pre><p>三个及以上 * 或 - 或 _ ，其间可有空格。</p>
-<p>样式：</p>
-<hr>
-<blockquote>
-<h1 id="转义"><a href="#转义" class="headerlink" title="转义"></a>转义</h1></blockquote>
-<pre><code>\   反斜线
-`   反引号
-*   星号
-_   底线
-{}  花括号
-[]  方括号
-()  括弧
-#   井字号
-+   加号
--   减号
-.   英文句点
-!   惊叹号
 </code></pre>
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/02/12/Markdown-note/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -862,20 +716,14 @@ _   底线
 
       
         
-          
-            <h1 id="Node安装与npm环境变量配置"><a href="#Node安装与npm环境变量配置" class="headerlink" title="Node安装与npm环境变量配置"></a>Node安装与npm环境变量配置</h1><h1 id="Node安装"><a href="#Node安装" class="headerlink" title="Node安装"></a>Node安装</h1><p>进入nodejs官方网站下载软件(nodejs.org)</p>
-<p>Windows环境下的NodeJS+NPM+Bower安装配置</p>
-<p>Windows环境下的NodeJS+NPM+Bower安装配置</p>
-<p>下载完成后，双击默认安装。安装程序会自动添加环境变量<br>Windows环境下的NodeJS+NPM+Bower安装配置</p>
-<p>检测nodejs是否安装成功。打开cmd命令行 输入 node - v 显示当前版本号</p>
-<p>Windows环境下的NodeJS+NPM+Bower安装配置</p>
-<p>检查npm是否安装。由于新版的NodeJS已经集成了npm，所以之前npm也一并安装好了。同样可以使用cmd命令行中键入 npm -v</p>
-<p>Windows环境下的NodeJS+NPM+Bower安装配置</p>
-<h1 id="npm环境变量配置"><a href="#npm环境变量配置" class="headerlink" title="npm环境变量配置"></a>npm环境变量配置</h1><p>npm作为一个NodeJS的模块管理，之前我由于没有系统地看资料所以导致安装配置模块的时候走了一大段弯路，所以现在很有必要列出来记录下。我们要先配置npm的全局模块的存放路径以及cache的路径，例如我希望将以上两个文件夹放在NodeJS的主目录下，便在NodeJs下建立“node_global”及“node_cache”两个文件夹。我们就在cmd中键入两行命令：<br>    npm config set prefix “D:\Program Files\nodejs\node_global”<br>    和<br>    npm config set cache “D:\Program Files\nodejs\node_cache”</p>
-<p>下面这一步非常关键，我们需要设置系统变量。进入我的电脑→属性→高级→环境变量。在系统变量下新建“NODE_PATH”，输入“D:\Program Files\nodejs\node_global\node_modules”。<br>安装bower, npm install bower -g; -g表示全局</p>
-<p>输入 node，require(‘bower’) 测试是否安装成功！</p>
-
-          
+          <h1 id="Node安装与npm环境变量配置"><a href="#Node安装与npm环境变量配置" class="headerlink" title="Node安装与npm环境变量配置"></a>Node安装与npm环境变量配置</h1>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/02/12/node-install-note/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
