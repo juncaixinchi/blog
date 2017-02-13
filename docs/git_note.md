@@ -137,4 +137,48 @@ Git note
 
 		$ git reset HEAD file_to_cancle.txt
 
-	
+	撤消对文件的修改，恢复文件file_to_restore.txt到上次提交时候的状态
+
+		$ git checkout -- file_to_restore.txt
+
+10. 远程仓库的使用
+
+	查看远程仓库
+
+		$ git remote -v
+		$ git remote show
+
+	添加远程仓库，默认为 origin
+
+		$ git remote add <shortname> <url>
+		$ git remote add pd https://github.com/juncaixinchi/blog-generater.git
+
+	从远程仓库中抓取，默认从origin抓取，也可自定义
+		
+		$ git fetch
+		$ git fetch https://github.com/juncaixinchi/blog-generater.git
+
+	推送到远程仓库，默认推送到origin，也可自定义
+		
+		$ git push
+		$ git push https://github.com/juncaixinchi/blog-generater.git
+
+	远程仓库的移除和重命名
+
+		$ git remote rm paul
+		$ git remote rename pb paul
+
+11. 打标签
+
+	列出已有标签
+
+		$ git tag
+
+	创建一个附注标签，指定提交的校验和（或部分校验和）则可后期打标签
+
+		$ git tag -a v1.4 -m 'my version 1.4'
+		$ git tag -a v0.0 -m "origin version" c76e548
+
+	共享标签
+
+		$ git push origin v1.5
