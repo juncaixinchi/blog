@@ -2,10 +2,10 @@
 title: 基于Hexo+Next+GitHub搭建个人博客
 date: 2017-02-12 16:24:56
 tags: 
-	- Hexo
-	- next
-	- GitHub Pages
-	- blog
+    - Hexo
+    - next
+    - GitHub Pages
+    - blog
 ---
 
 
