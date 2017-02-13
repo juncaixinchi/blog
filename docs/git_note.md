@@ -7,18 +7,18 @@ Git note
 
 1. 获取升级
 
-	$ git clone git://git.kernel.org/pub/scm/git/git.git
+		$ git clone git://git.kernel.org/pub/scm/git/git.git
 
 2. 添加用户信息
 	
-	$ git config --global user.name "lixinwei"
-	$ git config --global user.email lixinwei2017@foxmail.com
+		$ git config --global user.name "lixinwei"
+		$ git config --global user.email lixinwei2017@foxmail.com
 
 3. 获取帮助
 
-	$ git help <verb>
-	$ git <verb> --help
-	$ man git-<verb>
+		$ git help <verb>
+		$ git <verb> --help
+		$ man git-<verb>
 
 ## Git 基础
 
@@ -81,9 +81,60 @@ Git note
 
 5. 提交更新
 	
+	commit命令会提交更新，-m参数可添加提交备注
+
+		$ git commit -m "update"
+
+	给 git commit 加上 -a 选项，Git 就会自动把所有已经跟踪过的文件暂存起来一并提交，从而跳过 git add 步骤
+
+		$ git commit -a -m 'update without git add'
+
+6. 移除文件
+
+	使用git rm 命令将文件从已跟踪文件清单中移除，并连带从工作目录中删除指定的文件， 如果删除之前修改过并且已经放到暂存区域的话，则必须要用强制删除选项 -f（译注：即 force 的首字母）。 这是一种安全特性，用于防止误删还没有添加到快照的数据，这样的数据不能被 Git 恢复。
+
+		git rm file_to_remove.md
+
+7. 移动文件
+
+		$ git mv file_from file_to
+
+8. 查看提交历史
 	
+	查看所有log
+
+		$ git log
+
+	显示最近两次提交的差异
+
+		$ git log -p -2
+
+	显示每次提交的简略的统计信息
+
+		$ git log --stat
+
+	以pretty的方式显示提交历史
+
+		$ git log --pretty=oneline
+
+	添加了一些ASCII字符串来形象地展示你的分支、合并历史：
+
+		$ git log --pretty=format:"%h %s" --graph
 	
-		$ git commit
+	只显示作者L在2周内提交的近5条记录
 
+		$ git log --author L --since=2.weeks -5
 
+9. 撤消操作
+		
+	尝试重新提交,第二次提交将代替第一次提交的结果
+	
+		$ git commit -m 'initial commit'
+		$ git add forgotten_file
+		$ git commit --amend
 
+	取消暂存的文件file_to_cancle.txt(git add 的相反操作)
+
+		$ git reset HEAD file_to_cancle.txt
+
+	
