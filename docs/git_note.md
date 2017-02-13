@@ -75,10 +75,15 @@ Git note
 
 			# ignore doc/notes.txt, but not doc/server/arch.txt
 			doc/*.txt
-			
+
 			# ignore all .pdf files in the doc/ directory
 			doc/**/*.pdf
 
+5. 提交更新
+	
+	
+	
+		$ git commit
 
 
 
