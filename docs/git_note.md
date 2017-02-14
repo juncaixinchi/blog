@@ -286,7 +286,7 @@ git fetch不会自动merge，需再merge
 
 ### 分支整合之变基
 
-使用 rebase 命令将提交到某一分支上的所有修改都移至另一分支上，然后回到 master 分支，进行一次快进合并。
+使用 rebase 命令将提交到某一分支 testing 上的所有修改都移至另一分支 master 上，然后回到 master 分支，进行一次快进合并。
 
 	$ git checkout testing
 	$ git rebase master
@@ -294,5 +294,13 @@ git fetch不会自动merge，需再merge
 	$ git checkout master
 	$ git merge testing
 
+直接将特性分支（testing）变基到目标分支（即 master）上
 
+	$ git rebase master testing
+
+对两个分支进行变基时，将 client 中的修改合并到主分支并发布，但暂时并不合并 server 中的修改
+	
+	$ git rebase --onto master server client
+
+变基的风险：`不要对在仓库外有副本的分支执行变基`
 
