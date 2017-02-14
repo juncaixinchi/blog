@@ -220,5 +220,3 @@ Git note
 		$ git log --oneline --decorate
 		$ git log --oneline --decorate --graph --all
 
-
-
