@@ -196,7 +196,7 @@ Git note
 
 12. Git 别名
 
-	通过 git config 文件来为命令设置别名，外部程序的命令则要加!，使用cmu直接add 及 commit 
+	通过 config 为命令设置别名，外部程序的命令则要加!，使用cmu直接add 及 commit 
 
 		$ git config --global alias.co checkout
 		$ git config --global alias.br branch
@@ -211,22 +211,21 @@ Git note
 
 		$ git branch testing
 
-<<<<<<< HEAD
 	分支切换为testing，然后commit内容将在test分支进行
 
 		$ git checkout testing
 
-=======
->>>>>>> testing
-	使用 git log 命令查看各个分支当前所指的对象。 提供这一功能的参数是 --decorate。
+	使用 log 命令查看各个分支当前所指的对象。 提供这一功能的参数是 --decorate。
 
 		$ git log --oneline --decorate
 		$ git log --oneline --decorate --graph --all
-<<<<<<< HEAD
-=======
 
-	分支切换
+	使用 merge 来合并分支
 
-		$ git checkout testing
->>>>>>> testing
+		$ git merger testing
 
+	如果 master 和 testing 分支都各有提交新版本，则无法自动合并，会出现如下错误，需要手动编辑冲突的文件，然后再 commit
+
+		Auto Merge Failed; Fix Conflicts and Then Commit the Result
+
+	
