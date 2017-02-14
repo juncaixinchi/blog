@@ -1,3 +1,12 @@
 [submodule "themes/next"]
 	path = themes/next
 	url = git@github.com:juncaixinchi/hexo-theme-next.git
+[submodule "themes/yilia"]
+	path = themes/yilia
+	url = git@github.com:juncaixinchi/hexo-theme-yilia.git
+[submodule "themes/yelee"]
+	path = themes/yelee
+	url = https://github.com/MOxFIVE/hexo-theme-yelee.git
+[submodule "themes/maupassant"]
+	path = themes/maupassant
+	url = https://github.com/tufu9441/maupassant-hexo.git
