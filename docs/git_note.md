@@ -196,12 +196,27 @@ Git note
 
 12. Git 别名
 
-	通过 git config 文件来为命令设置别名
+	通过 git config 文件来为命令设置别名，外部程序的命令则要加!，使用cmu直接add 及 commit 
 
 		$ git config --global alias.co checkout
 		$ git config --global alias.br branch
-		$ git config --global alias.ci commit
 		$ git config --global alias.st status
 		$ git config --global alias.last 'log -1 HEAD'
+		$ git config --global alias.hexo '!hexo g -delpoy'
+		$ git config --global alias.cmu 'commit -a -m "update"'
 
+## Git 分支
+
+	创建分支testing
+
+		$ git branch testing
+
+	使用 git log 命令查看各个分支当前所指的对象。 提供这一功能的参数是 --decorate。
+
+		$ git log --oneline --decorate
+		$ git log --oneline --decorate --graph --all
+
+	分支切换
+
+		$ git checkout testing
 
