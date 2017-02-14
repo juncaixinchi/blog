@@ -211,10 +211,11 @@ git fetch不会自动merge，需再merge
 	$ git branch testing
 	$ git checkout testing
 
-或者在过去某个版本，如建立分支
+或者在过去某个版本，如593015f,建立分支testing
 
-	$ git logbr
-	$ git checkout 1942239
+	$ git log --oneline --decorate --graph --all -20
+	$ git checkout 593015f
+	$ git branch -b testing
 
 使用 log 命令查看各个分支当前所指的对象。 提供这一功能的参数是 --decorate。
 
