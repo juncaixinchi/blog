@@ -1,12 +1,16 @@
 ---
 title: Git_note
 date: 2017-02-14 19:36:07
-tags: Git Github
+tags: 
+	- Git
+	- Github
 ---
 Git note
 ===
 
-完整文档见[Git-scm](https://git-scm.com/book/zh/v2)
+学习Git的笔记，完整文档见[Git-scm](https://git-scm.com/book/zh/v2)
+
+<!-- more -->
 
 ##	Git 配置
 

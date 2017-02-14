@@ -32,14 +32,14 @@ function imagezoom(imgobj, box_w, box_h) {
   var scs = document.getElementsByTagName("script");
   if (location.href.indexOf("fm.qq.com") > -1 || location.href.indexOf("fm.qzone.qq.com") > -1) {
     homePageName = "\u8fd4\u56de\u4f01\u9e45FM";
-    homePageUrl = "https://fm.qq.com";
+    homePageUrl = "http://fm.qq.com";
   } else {
     if (location.href.indexOf("qzone.qq.com") > -1) {
       homePageName = "\u8fd4\u56de\u6211\u7684\u7a7a\u95f4";
-      homePageUrl = "https://qzone.qq.com";
+      homePageUrl = "http://qzone.qq.com";
     } else {
       homePageName = "\u8fd4\u56de\u817e\u8baf\u7f51";
-      homePageUrl = "https://www.qq.com";
+      homePageUrl = "http://www.qq.com";
     }
   }
   for (var i = 0;i < scs.length;i++) {
@@ -140,7 +140,7 @@ function imagezoom(imgobj, box_w, box_h) {
   timeout = setTimeout(function() {
     _Callback({tm_now:(new Date).getTime() / 1E3});
   }, 2E3);
-  getData("https://boss.qzone.qq.com/fcg-bin/fcg_zone_info");
+  getData("http://boss.qzone.qq.com/fcg-bin/fcg_zone_info");
   _w.share = function(target) {
     var summary = ["\u80cc\u666f\uff1a", current.name, "\uff0c\u6027\u522b\uff1a", current.sex, "\uff0c\u51fa\u751f\u65f6\u95f4\uff1a", current.birth_time, "\uff0c\u5931\u8e2a\u65f6\u95f4\uff1a", current.lost_time, "\uff0c\u7279\u5f81\u63cf\u8ff0\uff1a", current.child_feature].join("");
     if (summary) {
@@ -149,32 +149,32 @@ function imagezoom(imgobj, box_w, box_h) {
     var stitle = "\u5931\u8e2a\u7684\u5b9d\u8d1d\u8be6\u60c5";
     var desc = "\u5931\u8e2a\u7684\u5b9d\u8d1d\u8981\u56de\u5bb6\uff0c\u5feb\u6765\u53c2\u4e0e\u7231\u5fc3\u7684\u4f20\u9012\u5427\uff01";
     var encode = encodeURIComponent;
-    var opts = {"surl":"https://qzone.qq.com/gy/404/" + current.id + "/lostchild.html", "site":"QQ\u7a7a\u95f4", "summary":summary || "#\u5b9d\u8d1d\u56de\u5bb6#\u817e\u8baf\u5fd7\u613f\u8005\u7528\u6280\u672f\u70b9\u4eae\u516c\u76ca\uff0c\u8ba9\u6211\u4eec\u4e00\u8d77\u5bfb\u627e\u8d70\u5931\u7684\u513f\u7ae5\u5427\uff01", "stitle":stitle, "pics":current.child_pic, "desc":desc, "origin_url":current.url};
-    var surl = opts.surl || "https://www.qq.com/404/", summary = opts.summary || "\u8fd9\u4e2a\u662f\u5206\u4eab\u7684\u5185\u5bb9", stitle = opts.stitle || "\u8fd9\u4e2a\u662f\u5206\u4eab\u7684\u6807\u9898", pics = opts.pics || "https://qzonestyle.gtimg.cn/qzone_v6/act/img/20120422_qzone_7_years/pop_up/icon-pop-seven-years.png", site = opts.site || "\u8fd9\u4e2a\u662f\u5206\u4eab\u94fe\u63a5\u7684\u6587\u5b57", desc = opts.desc || "\u5931\u8e2a\u7684\u5b9d\u8d1d\u8981\u56de\u5bb6\uff0c\u5feb\u6765\u53c2\u4e0e\u7231\u5fc3\u7684\u4f20\u9012\u5427\uff01", 
-    origin_url = opts.origin_url || "https://www.qq.com/404/";
+    var opts = {"surl":"http://qzone.qq.com/gy/404/" + current.id + "/lostchild.html", "site":"QQ\u7a7a\u95f4", "summary":summary || "#\u5b9d\u8d1d\u56de\u5bb6#\u817e\u8baf\u5fd7\u613f\u8005\u7528\u6280\u672f\u70b9\u4eae\u516c\u76ca\uff0c\u8ba9\u6211\u4eec\u4e00\u8d77\u5bfb\u627e\u8d70\u5931\u7684\u513f\u7ae5\u5427\uff01", "stitle":stitle, "pics":current.child_pic, "desc":desc, "origin_url":current.url};
+    var surl = opts.surl || "http://www.qq.com/404/", summary = opts.summary || "\u8fd9\u4e2a\u662f\u5206\u4eab\u7684\u5185\u5bb9", stitle = opts.stitle || "\u8fd9\u4e2a\u662f\u5206\u4eab\u7684\u6807\u9898", pics = opts.pics || "http://qzonestyle.gtimg.cn/qzone_v6/act/img/20120422_qzone_7_years/pop_up/icon-pop-seven-years.png", site = opts.site || "\u8fd9\u4e2a\u662f\u5206\u4eab\u94fe\u63a5\u7684\u6587\u5b57", desc = opts.desc || "\u5931\u8e2a\u7684\u5b9d\u8d1d\u8981\u56de\u5bb6\uff0c\u5feb\u6765\u53c2\u4e0e\u7231\u5fc3\u7684\u4f20\u9012\u5427\uff01", 
+    origin_url = opts.origin_url || "http://www.qq.com/404/";
     var shareList = {weibo:{method:function(evt) {
-      var w = "https://v.t.qq.com/share/share.php", q = ["?site=", encode(surl + "#via=share_t_weib"), "&title=", encode(summary), "&pic=", encode(pics), "&url=", encode(surl)].join(""), p = [w, q].join("");
+      var w = "http://v.t.qq.com/share/share.php", q = ["?site=", encode(surl + "#via=share_t_weib"), "&title=", encode(summary), "&pic=", encode(pics), "&url=", encode(surl)].join(""), p = [w, q].join("");
       openit(p, "weibo", "width=700, height=680, top=0, left=0, toolbar=no, menubar=no, scrollbars=no, location=yes, resizable=no, status=no");
     }}, qzone:{method:function(evt) {
       var buff = [], ps = {url:surl + "#via=404-qzoneshare", desc:desc || "\u5931\u8e2a\u7684\u5b9d\u8d1d\u8981\u56de\u5bb6\uff0c\u5feb\u6765\u53c2\u4e0e\u7231\u5fc3\u7684\u4f20\u9012\u5427\uff01", summary:summary, title:stitle, pics:pics, site:site};
       for (var k in ps) {
         buff.push(k + "=" + encode(ps[k] || ""));
       }
-      var w = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?" + buff.join("&"), q = ["#via=share_t_qzone", "&title=", encode(summary), "&pic=", encode(pics), "&url=", encode(surl)].join(""), p = [w, q].join("");
+      var w = "http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?" + buff.join("&"), q = ["#via=share_t_qzone", "&title=", encode(summary), "&pic=", encode(pics), "&url=", encode(surl)].join(""), p = [w, q].join("");
       openit(p, "qzone", "width=700, height=680, top=0, left=0, toolbar=no, menubar=no, scrollbars=no, location=yes, resizable=no, status=no");
     }}, sina:{method:function() {
-      var w = "https://v.t.sina.com.cn/share/share.php", q = ["?url=", encode(surl + "#via=share_x_weib"), "&title=", encode(summary), "&source=", "&sourceUrl=", surl, "&content=utf-8", "&pic=", encode(pics)].join(""), p = [w, q].join("");
+      var w = "http://v.t.sina.com.cn/share/share.php", q = ["?url=", encode(surl + "#via=share_x_weib"), "&title=", encode(summary), "&source=", "&sourceUrl=", surl, "&content=utf-8", "&pic=", encode(pics)].join(""), p = [w, q].join("");
       openit(p, "sina", "toolbar=0,status=0,resizable=1,width=440,height=430");
     }}, kaixin:{method:function() {
-      var n = "https://www.kaixin001.com/repaste/bshare.php?rurl=" + encode(surl + "#via=share_kaixin") + "&rcontent=&rtitle=" + encode(summary);
+      var n = "http://www.kaixin001.com/repaste/bshare.php?rurl=" + encode(surl + "#via=share_kaixin") + "&rcontent=&rtitle=" + encode(summary);
       openit(n, "kaixin", "toolbar=0,status=0,resizable=1,width=600,height=360");
     }}, renren:{method:function() {
-      var n = "https://www.connect.renren.com/share/sharer?title=" + encode(summary) + "&url=" + encode(surl + "#via=share_renren"), p = window.open(n, "rr", "toolbar=0,status=0,resizable=1,width=510,height=300");
+      var n = "http://www.connect.renren.com/share/sharer?title=" + encode(summary) + "&url=" + encode(surl + "#via=share_renren"), p = window.open(n, "rr", "toolbar=0,status=0,resizable=1,width=510,height=300");
       if (p) {
         p.focus();
       }
     }}, weixin:{method:function() {
-      var n = "https://qzone.qq.com/gy/404/page/qrcode.html?url=" + encode(origin_url + "#via=share_weixin"), p = window.open(n, "rr", "toolbar=0,status=0,resizable=1,width=620,height=430");
+      var n = "http://qzone.qq.com/gy/404/page/qrcode.html?url=" + encode(origin_url + "#via=share_weixin"), p = window.open(n, "rr", "toolbar=0,status=0,resizable=1,width=620,height=430");
       if (p) {
         p.focus();
       }
@@ -292,35 +292,34 @@ function imagezoom(imgobj, box_w, box_h) {
     var b = "{Template Error}", c = a.stack || "";
     if (c) {
       c = c.split("\n").slice(0, 2).join("\n");
-    } 
-    else {
+    } else {
       for (var d in a) {
-       c += "<" + d + ">\n" + a[d] + "\n\n";
-     }
-   }
-   return function() {
-    return "object" == typeof console && console.error(b + "\n\n" + c), b;
-  };
-}
-var j = a.cache = {}, k = this.String, l = {"<":"&#60;", ">":"&#62;", '"':"&#34;", "'":"&#39;", "&":"&#38;"}, m = Array.isArray || function(a) {
-  return "[object Array]" === {}.toString.call(a);
-}, n = a.utils = {$helpers:{}, $include:function(a, b, c) {
-  return a = f(c, a), g(a, b);
-}, $string:b, $escape:d, $each:e}, o = a.helpers = n.$helpers;
-a.get = function(a) {
-  return j[a.replace(/^\.\//, "")];
-}, a.helper = function(a, b) {
-  o[a] = b;
-}, "function" == typeof define ? define(function() {
-  return a;
-}) : "undefined" != typeof exports ? module.exports = a : this.template = a, a("body", function(a) {
-  var b = this, c = (b.$helpers, b.$escape), d = a.retlink, e = a.rettext, f = a.topid, g = a.topimg, h = a.topname, i = a.topgender, j = a.topbirth, l = a.toplostdate, m = a.toplostplace, n = a.toplostdesc, o = a.toplink, p = b.$each, q = a.otherdata, r = (a.otheritem, a.index, "");
-  return r += '<div class="mod_404"> <div class="wrapper" id="mainWrap"> <div class="mod_hd"> <h1 class="title"><span class="title_inner">404\uff0c\u60a8\u8bbf\u95ee\u7684\u9875\u9762\u627e\u4e0d\u56de\u6765\u4e86\uff0c\u4f46\u6211\u4eec\u53ef\u4ee5\u4e00\u8d77\u5e2e\u4ed6\u4eec\u56de\u5bb6\uff01</span></h1> <div class="desc"><a href="', r += c(d), r += '" class="desc_link">', r += c(e), r += '</a></div> </div> <div class="mod_bd"> <div class="child_box"> <div class="mod_404_child child_in" data-id="', 
-  r += c(f), r += '" id="top_', r += c(f), r += '"> <div class="child_main cf"> <div class="child_avatar"><img src="', r += c(g), r += '" onload="imagezoom(this, 160, 216);" style="opacity:0"></div> <div class="child_info"> <div class="info_name"> <h2><span class="name_inner">', r += c(h), r += '</span><span class="info_sex">(', r += c(i), r += ')</span></h2> </div> <div class="info_item info_birth"><span class="info_lbl">\u51fa\u751f\u65e5\u671f\uff1a</span><span class="item_inner">', r += c(j), 
-  r += '</span></div> <div class="info_item info_time"><span class="info_lbl">\u5931\u8e2a\u65f6\u95f4\uff1a</span><span class="item_inner">', r += c(l), r += '</span></div> <div class="info_item info_address"><span class="info_lbl">\u5931\u8e2a\u5730\u70b9\uff1a</span><span class="item_inner">', r += c(m), r += '</span></div> <div class="info_item info_desc"><span class="info_lbl">\u5931\u8e2a\u4eba\u7279\u5f81\u63cf\u8ff0\uff1a</span><span class="item_inner">', r += c(n), r += '</span></div> <a href="', 
-  r += c(o), r += '" class="link_view" title="\u67e5\u770b\u8be6\u60c5"><span class="link_inner">\u67e5\u770b\u8be6\u60c5</span></a> </div> </div> <div class="child_bottom cf"> <div class="bottom_logo"> <ul class="logo_list"> <li><a href="https://e.t.qq.com/Tencent-Volunteers" title="\u817e\u8baf\u5fd7\u613f\u8005"><img src="https://qzone.qq.com/gy/404/style/image/logo_tencentvolunteers.png"></a></li> <li><a href="https://bbs.baobeihuijia.com/forum.php" title="\u5b9d\u8d1d\u56de\u5bb6"><img src="https://qzone.qq.com/gy/404/style/image/logo_baobeihuijia.png"></a></li> </ul> </div> <div class="bottom_right"> <div class="mod_share" onmouseover="this.className += \' mod_share_hover\';" onmouseout="this.className = this.className.replace(\' mod_share_hover\',\'\')"> <span class="share_inner">\u5206\u4eab</span> <ul class="share_list"> <li><a href="javascript:void(0);" class="share_link" onclick="share(\'weibo\');return false;" title="\u817e\u8baf\u5fae\u535a"><span class="link_inner">\u817e\u8baf\u5fae\u535a</span><i class="ico_tencentweibo"></i></a></li> <li><a href="javascript:void(0);" class="share_link" onclick="share(\'qzone\');return false;" title="QQ\u7a7a\u95f4"><span class="link_inner">QQ\u7a7a\u95f4</span><i class="ico_qzone"></i></a></li> <li><a href="javascript:void(0);" class="share_link" onclick="share(\'sina\');return false;" title="\u65b0\u6d6a\u5fae\u535a"><span class="link_inner">\u65b0\u6d6a\u5fae\u535a</span><i class="ico_sinaweibo"></i></a></li> <li><a href="javascript:void(0);" class="share_link" onclick="share(\'weixin\');return false;" title="\u5fae\u4fe1"><span class="link_inner">\u5fae\u4fe1</span><i class="ico_weixin"></i></a></li> </ul> <span style="clear: both;"></span> </div> </div> </div> </div> <i class="ico_corner"></i> </div> </div> <div class="mod_fd"> <div class="mod_404_children"> <ul class="children_list"> ', 
-  p(q, function(a) {
-    r += ' <li class="', r += c(f == a._id ? "current" : ""), r += '"><a href="javascript:;" onclick="toThis(\'', r += c(a._id), r += '\');" title="', r += c(a.name), r += '" ><img src="', r += c(a.child_pic), r += '"></a></li> ';
-  }), r += " </ul> </div> </div> </div> </div>", new k(r);
-});
+        c += "<" + d + ">\n" + a[d] + "\n\n";
+      }
+    }
+    return function() {
+      return "object" == typeof console && console.error(b + "\n\n" + c), b;
+    };
+  }
+  var j = a.cache = {}, k = this.String, l = {"<":"&#60;", ">":"&#62;", '"':"&#34;", "'":"&#39;", "&":"&#38;"}, m = Array.isArray || function(a) {
+    return "[object Array]" === {}.toString.call(a);
+  }, n = a.utils = {$helpers:{}, $include:function(a, b, c) {
+    return a = f(c, a), g(a, b);
+  }, $string:b, $escape:d, $each:e}, o = a.helpers = n.$helpers;
+  a.get = function(a) {
+    return j[a.replace(/^\.\//, "")];
+  }, a.helper = function(a, b) {
+    o[a] = b;
+  }, "function" == typeof define ? define(function() {
+    return a;
+  }) : "undefined" != typeof exports ? module.exports = a : this.template = a, a("body", function(a) {
+    var b = this, c = (b.$helpers, b.$escape), d = a.retlink, e = a.rettext, f = a.topid, g = a.topimg, h = a.topname, i = a.topgender, j = a.topbirth, l = a.toplostdate, m = a.toplostplace, n = a.toplostdesc, o = a.toplink, p = b.$each, q = a.otherdata, r = (a.otheritem, a.index, "");
+    return r += '<div class="mod_404"> <div class="wrapper" id="mainWrap"> <div class="mod_hd"> <h1 class="title"><span class="title_inner">404\uff0c\u60a8\u8bbf\u95ee\u7684\u9875\u9762\u627e\u4e0d\u56de\u6765\u4e86\uff0c\u4f46\u6211\u4eec\u53ef\u4ee5\u4e00\u8d77\u5e2e\u4ed6\u4eec\u56de\u5bb6\uff01</span></h1> <div class="desc"><a href="', r += c(d), r += '" class="desc_link">', r += c(e), r += '</a></div> </div> <div class="mod_bd"> <div class="child_box"> <div class="mod_404_child child_in" data-id="', 
+    r += c(f), r += '" id="top_', r += c(f), r += '"> <div class="child_main cf"> <div class="child_avatar"><img src="', r += c(g), r += '" onload="imagezoom(this, 160, 216);" style="opacity:0"></div> <div class="child_info"> <div class="info_name"> <h2><span class="name_inner">', r += c(h), r += '</span><span class="info_sex">(', r += c(i), r += ')</span></h2> </div> <div class="info_item info_birth"><span class="info_lbl">\u51fa\u751f\u65e5\u671f\uff1a</span><span class="item_inner">', r += c(j), 
+    r += '</span></div> <div class="info_item info_time"><span class="info_lbl">\u5931\u8e2a\u65f6\u95f4\uff1a</span><span class="item_inner">', r += c(l), r += '</span></div> <div class="info_item info_address"><span class="info_lbl">\u5931\u8e2a\u5730\u70b9\uff1a</span><span class="item_inner">', r += c(m), r += '</span></div> <div class="info_item info_desc"><span class="info_lbl">\u5931\u8e2a\u4eba\u7279\u5f81\u63cf\u8ff0\uff1a</span><span class="item_inner">', r += c(n), r += '</span></div> <a href="', 
+    r += c(o), r += '" class="link_view" title="\u67e5\u770b\u8be6\u60c5"><span class="link_inner">\u67e5\u770b\u8be6\u60c5</span></a> </div> </div> <div class="child_bottom cf"> <div class="bottom_logo"> <ul class="logo_list"> <li><a href="http://e.t.qq.com/Tencent-Volunteers" title="\u817e\u8baf\u5fd7\u613f\u8005"><img src="http://qzone.qq.com/gy/404/style/image/logo_tencentvolunteers.png"></a></li> <li><a href="http://bbs.baobeihuijia.com/forum.php" title="\u5b9d\u8d1d\u56de\u5bb6"><img src="http://qzone.qq.com/gy/404/style/image/logo_baobeihuijia.png"></a></li> </ul> </div> <div class="bottom_right"> <div class="mod_share" onmouseover="this.className += \' mod_share_hover\';" onmouseout="this.className = this.className.replace(\' mod_share_hover\',\'\')"> <span class="share_inner">\u5206\u4eab</span> <ul class="share_list"> <li><a href="javascript:void(0);" class="share_link" onclick="share(\'weibo\');return false;" title="\u817e\u8baf\u5fae\u535a"><span class="link_inner">\u817e\u8baf\u5fae\u535a</span><i class="ico_tencentweibo"></i></a></li> <li><a href="javascript:void(0);" class="share_link" onclick="share(\'qzone\');return false;" title="QQ\u7a7a\u95f4"><span class="link_inner">QQ\u7a7a\u95f4</span><i class="ico_qzone"></i></a></li> <li><a href="javascript:void(0);" class="share_link" onclick="share(\'sina\');return false;" title="\u65b0\u6d6a\u5fae\u535a"><span class="link_inner">\u65b0\u6d6a\u5fae\u535a</span><i class="ico_sinaweibo"></i></a></li> <li><a href="javascript:void(0);" class="share_link" onclick="share(\'weixin\');return false;" title="\u5fae\u4fe1"><span class="link_inner">\u5fae\u4fe1</span><i class="ico_weixin"></i></a></li> </ul> <span style="clear: both;"></span> </div> </div> </div> </div> <i class="ico_corner"></i> </div> </div> <div class="mod_fd"> <div class="mod_404_children"> <ul class="children_list"> ', 
+    p(q, function(a) {
+      r += ' <li class="', r += c(f == a._id ? "current" : ""), r += '"><a href="javascript:;" onclick="toThis(\'', r += c(a._id), r += '\');" title="', r += c(a.name), r += '" ><img src="', r += c(a.child_pic), r += '"></a></li> ';
+    }), r += " </ul> </div> </div> </div> </div>", new k(r);
+  });
 }();

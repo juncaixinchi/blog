@@ -1,0 +1,225 @@
+<!doctype html><html class="theme-next pisces use-motion" lang="zh-Hans"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link href="/Blogs/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"><link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css"><link href="/Blogs/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css"><link href="/Blogs/css/main.css?v=5.1.0" rel="stylesheet" type="text/css"><meta name="keywords" content="Git,Github,"><link rel="shortcut icon" type="image/x-icon" href="/Blogs/favicon.ico?v=5.1.0"><meta name="description" content="Git note学习Git的笔记，完整文档见Git-scm"><meta property="og:type" content="article"><meta property="og:title" content="Git_note"><meta property="og:url" content="https://juncaixinchi.github.io/Blogs/2017/02/14/Git-note/index.html"><meta property="og:site_name" content="俊采新驰"><meta property="og:description" content="Git note学习Git的笔记，完整文档见Git-scm"><meta property="og:updated_time" content="2017-02-14T11:47:04.749Z"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="Git_note"><meta name="twitter:description" content="Git note学习Git的笔记，完整文档见Git-scm"><script type="text/javascript" id="hexo.configurations">var NexT=window.NexT||{},CONFIG={root:"/Blogs/",scheme:"Pisces",sidebar:{position:"left",display:"post"},fancybox:!0,motion:!0,duoshuo:{userId:"0",author:"博主"},algolia:{applicationID:"",apiKey:"",indexName:"",hits:{per_page:10},labels:{input_placeholder:"Search for Posts",hits_empty:"We didn't find any results for the search: ${query}",hits_stats:"${hits} results found in ${time} ms"}}}</script><link rel="canonical" href="https://juncaixinchi.github.io/Blogs/2017/02/14/Git-note/"><title>Git_note | 俊采新驰</title></head><body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans"><div class="container one-collumn sidebar-position-left page-post-detail"><div class="headband"></div><header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="header-inner"><div class="site-meta"><div class="custom-logo-site-title"><a href="/Blogs/" class="brand" rel="start"><span class="logo-line-before"><i></i></span> <span class="site-title">俊采新驰</span> <span class="logo-line-after"><i></i></span></a></div><h1 class="site-subtitle" itemprop="description"></h1></div><div class="site-nav-toggle"><button><span class="btn-bar"></span> <span class="btn-bar"></span> <span class="btn-bar"></span></button></div><nav class="site-nav"><ul id="menu" class="menu"><li class="menu-item menu-item-home"><a href="/Blogs/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i><br>首页</a></li><li class="menu-item menu-item-about"><a href="/Blogs/about" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i><br>关于</a></li><li class="menu-item menu-item-archives"><a href="/Blogs/archives" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i><br>归档</a></li><li class="menu-item menu-item-tags"><a href="/Blogs/tags" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i><br>标签</a></li><li class="menu-item menu-item-commonweal"><a href="/Blogs/404.html" rel="section"><i class="menu-item-icon fa fa-fw fa-heartbeat"></i><br>公益404</a></li></ul></nav></div></header><main id="main" class="main"><div class="main-inner"><div class="content-wrap"><div id="content" class="content"><div id="posts" class="posts-expand"><article class="post post-type-normal" itemscope itemtype="http://schema.org/Article"><link itemprop="mainEntityOfPage" href="https://juncaixinchi.github.io/Blogs/Blogs/2017/02/14/Git-note/"><span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person"><meta itemprop="name" content="俊采新驰"><meta itemprop="description" content=""><meta itemprop="image" content="/Blogs/images/avatar.png"></span><span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="俊采新驰"><span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject"><img style="display:none" itemprop="url image" alt="俊采新驰" src=""></span></span><header class="post-header"><h2 class="post-title" itemprop="name headline">Git_note</h2><div class="post-meta"><span class="post-time"><span class="post-meta-item-icon"><i class="fa fa-calendar-o"></i> </span><span class="post-meta-item-text">发表于</span> <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-14T19:36:07+08:00">2017-02-14</time></span></div></header><div class="post-body" itemprop="articleBody"><h1 id="Git-note"><a href="#Git-note" class="headerlink" title="Git note"></a>Git note</h1><p>学习Git的笔记，完整文档见<a href="https://git-scm.com/book/zh/v2" target="_blank" rel="external">Git-scm</a></p><a id="more"></a><h2 id="Git-配置"><a href="#Git-配置" class="headerlink" title="Git 配置"></a>Git 配置</h2><h3 id="获取升级"><a href="#获取升级" class="headerlink" title="获取升级"></a>获取升级</h3><pre><code>$ git clone git://git.kernel.org/pub/scm/git/git.git
+</code></pre><h3 id="添加用户信息，并查看配置文件，添加别名"><a href="#添加用户信息，并查看配置文件，添加别名" class="headerlink" title="添加用户信息，并查看配置文件，添加别名"></a>添加用户信息，并查看配置文件，添加<a href="#_14">别名</a></h3><pre><code>$ git config --global user.name &quot;lixinwei&quot;
+$ git config --global user.email lixinwei2017@foxmail.com
+$ less ~/.gitconfig
+</code></pre><h3 id="获取帮助"><a href="#获取帮助" class="headerlink" title="获取帮助"></a>获取帮助</h3><pre><code>$ git help &lt;verb&gt;
+$ git &lt;verb&gt; --help
+$ man git-&lt;verb&gt;
+</code></pre><h2 id="Git-基础"><a href="#Git-基础" class="headerlink" title="Git 基础"></a>Git 基础</h2><h3 id="在现有目录中初始化仓库"><a href="#在现有目录中初始化仓库" class="headerlink" title="在现有目录中初始化仓库"></a>在现有目录中初始化仓库</h3><pre><code>$ git init
+</code></pre><p>该命令将创建一个名为 .git 的子目录，这个子目录含有你初始化的 Git 仓库中所有的必须文件，这些文件是 Git 仓库的骨干。 但是，在这个时候，我们仅仅是做了一个初始化的操作，你的项目里的文件还没有被跟踪。</p><pre><code>$ git add *
+$ git commit -m &apos;initial project version&apos;
+</code></pre><p>在一个已经存在文件的文件夹（而不是空文件夹）中初始化 Git 仓库来进行版本控制的话，应该开始跟踪这些文件并提交。</p><h3 id="克隆现有的仓库"><a href="#克隆现有的仓库" class="headerlink" title="克隆现有的仓库"></a>克隆现有的仓库</h3><pre><code>$ git clone https://github.com/juncaixinchi/blog-generater.git
+</code></pre><p>克隆blog-generater至当前目录</p><h3 id="记录每次更新到仓库"><a href="#记录每次更新到仓库" class="headerlink" title="记录每次更新到仓库"></a>记录每次更新到仓库</h3><pre><code>$ git add README
+</code></pre><p>使用命令 git add 开始跟踪跟踪 README 文件</p><pre><code>$ git status
+
+$ git status -s
+</code></pre><p>检查当前文件状态，加-s为简略信息</p><h3 id="忽略文件"><a href="#忽略文件" class="headerlink" title="忽略文件"></a>忽略文件</h3><p>创建一个名为 .gitignore 的文件，列出要忽略的文件模式，文件 .gitignore 的格式规范如下：</p><ul><li>所有空行或者以 ＃ 开头的行都会被 Git 忽略。</li><li><p>要忽略指定模式以外的文件或目录，可以在模式前加上惊叹号（!）取反。</p><pre><code># no .a files
+*.a
+</code></pre></li><li><p>匹配模式可以以（/）开头防止递归。</p><pre><code># only ignore the TODO file in the current directory, not subdir/TODO
+/TODO
+</code></pre></li><li><p>匹配模式可以以（/）结尾指定目录。</p><pre><code># ignore all files in the build/ directory
+build/
+</code></pre></li><li><p>可以使用标准的 glob 模式匹配。</p><pre><code># ignore doc/notes.txt, but not doc/server/arch.txt
+doc/*.txt
+
+# ignore all .pdf files in the doc/ directory
+doc/**/*.pdf
+</code></pre></li></ul><h3 id="提交更新"><a href="#提交更新" class="headerlink" title="提交更新"></a>提交更新</h3><p>commit命令会提交更新，-m参数可添加提交备注，或者随机生成备注 O__O</p><pre><code>$ git commit -m &quot;update&quot;
+$ git commit -m &quot;`curl -s http://whatthecommit.com/index.txt`&quot;
+</code></pre><p>给 git commit 加上 -a 选项，Git 就会自动把所有已经跟踪过的文件暂存起来一并提交，从而跳过 add 步骤</p><pre><code>$ git commit -a -m &apos;update without git add&apos;
+</code></pre><p>不过正式的提交还是应该避免-m 添加备注，而是详细的添加</p><h3 id="移除文件或移动文件"><a href="#移除文件或移动文件" class="headerlink" title="移除文件或移动文件"></a>移除文件或移动文件</h3><p>使用 rm 命令将文件从已跟踪文件清单中移除，并连带从工作目录中删除指定的文件，如果删除之前修改过并且已经放到暂存区域的话，则必须要用强制删除选项 -f</p><pre><code>$ git rm file_to_remove.md
+$ git mv file_from file_to
+</code></pre><h3 id="查看提交历史"><a href="#查看提交历史" class="headerlink" title="查看提交历史"></a>查看提交历史</h3><p>查看所有log</p><pre><code>$ git log
+</code></pre><p>显示最近两次提交的差异</p><pre><code>$ git log -p -2
+</code></pre><p>显示每次提交的简略的统计信息</p><pre><code>$ git log --stat
+</code></pre><p>以pretty的方式显示提交历史</p><pre><code>$ git log --pretty=oneline
+</code></pre><p>添加了一些ASCII字符串来形象地展示你的分支、合并历史：</p><pre><code>$ git log --pretty=format:&quot;%h %s&quot; --graph
+</code></pre><p>只显示作者L在2周内提交的近5条记录</p><pre><code>$ git log --author L --since=2.weeks -5
+</code></pre><h3 id="撤消操作"><a href="#撤消操作" class="headerlink" title="撤消操作"></a>撤消操作</h3><p>尝试重新提交,第二次提交将代替第一次提交的结果</p><pre><code>$ git commit -m &apos;initial commit&apos;
+$ git add forgotten_file
+$ git commit --amend
+</code></pre><p>取消暂存的文件file_to_cancle.txt(git add 的相反操作)</p><pre><code>$ git reset HEAD file_to_cancle.txt
+</code></pre><p>撤消对文件的修改，恢复文件file_to_restore.txt到上次提交时候的状态</p><pre><code>$ git checkout -- file_to_restore.txt
+</code></pre><h3 id="远程仓库的使用"><a href="#远程仓库的使用" class="headerlink" title="远程仓库的使用"></a>远程仓库的使用</h3><p>查看远程仓库</p><pre><code>$ git remote -v
+$ git remote show
+</code></pre><p>添加远程仓库，默认为 origin</p><pre><code>$ git remote add &lt;shortname&gt; &lt;url&gt;
+$ git remote add pd https://github.com/juncaixinchi/blog-generater.git
+</code></pre><p>从远程仓库中抓取，默认从origin抓取，也可自定义</p><pre><code>$ git fetch
+$ git fetch https://github.com/juncaixinchi/blog-generater.git
+$ git fetch origin master:tmp
+</code></pre><p>git fetch不会自动merge，需再merge</p><pre><code>$ git fetch origin master:tmp
+$ git diff tmp
+$ git merge tmp
+</code></pre><p>直接从远程获取最新版本并merge到本地</p><pre><code>$ git pull origin master
+</code></pre><p>使用 git push (remote) (branch)推送到远程仓库，默认推送到origin/master, 也可自定义远程仓库及分支（如serverfix）</p><pre><code>$ git push
+$ git push https://github.com/juncaixinchi/blog-generater.git
+$ git push origin serverfix
+$ git push origin serverfix:awesomebranch
+</code></pre><p>设置其他的跟踪分支 - 其他远程仓库上的跟踪分支，或者不跟踪 master 分支</p><pre><code>$ git checkout --track origin/serverfix
+</code></pre><p>远程仓库的移除和重命名</p><pre><code>$ git remote rm paul
+$ git remote rename pb paul
+</code></pre><p>删除远程分支serverfix</p><pre><code>$ git push origin --delete serverfix
+</code></pre><h3 id="打标签"><a href="#打标签" class="headerlink" title="打标签"></a>打标签</h3><p>列出已有标签</p><pre><code>$ git tag
+</code></pre><p>创建一个附注标签，指定提交的校验和（或部分校验和）则可后期打标签</p><pre><code>$ git tag -a v1.4 -m &apos;my version 1.4&apos;
+$ git tag -a v0.0 -m &quot;origin version&quot; c76e548
+</code></pre><p>共享标签</p><pre><code>$ git push origin v1.5
+</code></pre><h3 id="设置别名"><a href="#设置别名" class="headerlink" title="设置别名"></a>设置别名</h3><p>通过 config 为命令设置别名，外部程序的命令则要加!，使用cmu直接add 及 commit</p><pre><code>$ git config --global alias.co checkout
+$ git config --global alias.br branch
+$ git config --global alias.st status
+$ git config --global alias.last &apos;log -1 HEAD&apos;
+$ git config --global alias.hexo &apos;!hexo g -delpoy&apos;
+$ git config --global alias.cmu &apos;commit -a -m &quot;update&quot;&apos;
+$ git config --global alias.logbr &apos;log --oneline --decorate --graph --all -20&apos;
+</code></pre><h2 id="Git-分支"><a href="#Git-分支" class="headerlink" title="Git 分支"></a>Git 分支</h2><h3 id="分支的新建和合并"><a href="#分支的新建和合并" class="headerlink" title="分支的新建和合并"></a>分支的新建和合并</h3><p>创建分支testing，分支切换为testing，然后commit内容将在test分支进行</p><pre><code>$ git branch testing
+$ git checkout testing
+</code></pre><p>或者在过去某个版本，如593015f,建立分支testing</p><pre><code>$ git log --oneline --decorate --graph --all
+$ git checkout 593015f
+$ git checkout -b testing
+</code></pre><p>使用 log 命令查看各个分支当前所指的对象。 提供这一功能的参数是 –decorate。</p><pre><code>$ git log --oneline --decorate
+$ git log --oneline --decorate --graph --all
+</code></pre><p>使用 merge 来合并分支</p><pre><code>$ git merger testing
+</code></pre><p>如果 master 和 testing 分支都各有提交新版本，则无法自动合并，会出现如下错误，需要手动编辑冲突的文件，然后再 commit，</p><pre><code>Auto Merge Failed; Fix Conflicts and Then Commit the Result
+</code></pre><p>例如冲突的文件内容为：</p><pre><code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD:index.html
+&lt;div id=&quot;footer&quot;&gt;contact : email.support@github.com&lt;/div&gt;
+=======
+&lt;div id=&quot;footer&quot;&gt;
+ please contact us at support@github.com
+&lt;/div&gt;
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; testing:index.html
+</code></pre><p>这表示 HEAD 所指示的版本（也就是你的 master 分支所在的位置）在这个区段的上半部分（======= 的上半部分），而 testing 分支所指示的版本在 ======= 的下半部分。 为了解决冲突，必须选择使用由 ======= 分割的两部分中的一个，或者也可以自行合并这些内容。 例如，通过把这段内容换成下面的样子来解决冲突：</p><pre><code>&lt;div id=&quot;footer&quot;&gt;
+please contact us at email.support@github.com
+&lt;/div&gt;
+</code></pre><p>另外也可以使用图形化工具来解决冲突</p><pre><code>$ git mergetool
+</code></pre><p>合并完成后删除分支testing</p><pre><code>$ git branch -d testing
+</code></pre><h3 id="分支的管理"><a href="#分支的管理" class="headerlink" title="分支的管理"></a>分支的管理</h3><p>显示分支列表</p><pre><code>$ git branch
+</code></pre><p>查看每一个分支的最后一次提交</p><pre><code>$ git branch -v
+</code></pre><p>查看已经合并或尚未合并到当前分支的分支</p><pre><code>$ git branch --merged
+$ git branch --no-merged
+</code></pre><p>删除和强制删除分支</p><pre><code>$ git branch -d testing
+$ git branch -D testing
+</code></pre><h3 id="分支整合之变基"><a href="#分支整合之变基" class="headerlink" title="分支整合之变基"></a>分支整合之变基</h3><p>使用 rebase 命令将提交到某一分支 testing 上的所有修改都移至另一分支 master 上，然后回到 master 分支，进行一次快进合并。</p><pre><code>$ git checkout testing
+$ git rebase master
+
+$ git checkout master
+$ git merge testing
+</code></pre><p>直接将特性分支（testing）变基到目标分支（即 master）上</p><pre><code>$ git rebase master testing
+</code></pre><p>对两个分支进行变基时，将 client 中的修改合并到主分支并发布，但暂时并不合并 server 中的修改</p><pre><code>$ git rebase --onto master server client
+</code></pre><p>变基的风险：<code>不要对在仓库外有副本的分支执行变基</code></p><h2 id="Git协议"><a href="#Git协议" class="headerlink" title="Git协议"></a>Git协议</h2><h3 id="本地协议"><a href="#本地协议" class="headerlink" title="本地协议"></a>本地协议</h3><p>本地协议，其中的远程版本库就是硬盘内的另一个目录，一般使用硬链接（hard link）或直接复制所需要的文件，</p><pre><code>$ git clone /opt/git/project.git
+</code></pre><p>增加一个本地版本库到现有的 Git 项目</p><pre><code>$ git remote add local_proj /opt/git/project.git
+</code></pre><h3 id="HTTP-协议"><a href="#HTTP-协议" class="headerlink" title="HTTP 协议"></a>HTTP 协议</h3><p>Clone with HTTPS, Use Git or checkout with SVN using the web URL.</p><pre><code>$ git clone https://example.com/gitproject.git
+$ git clone https://github.com/juncaixinchi/blog-generater.git
+</code></pre><h3 id="SSH-协议"><a href="#SSH-协议" class="headerlink" title="SSH 协议"></a>SSH 协议</h3><p>Clone with SSH, Use an SSH key and passphrase from account.</p><pre><code>$ git clone user@server:project.git
+$ git clone git@github.com:juncaixinchi/blog-generater.git
+</code></pre><h1 id="Git-note-1"><a href="#Git-note-1" class="headerlink" title="Git note"></a>Git note</h1><p>完整文档见<a href="https://git-scm.com/book/zh/v2" target="_blank" rel="external">Git-scm</a></p><h2 id="Git-配置-1"><a href="#Git-配置-1" class="headerlink" title="Git 配置"></a>Git 配置</h2><h3 id="获取升级-1"><a href="#获取升级-1" class="headerlink" title="获取升级"></a>获取升级</h3><pre><code>$ git clone git://git.kernel.org/pub/scm/git/git.git
+</code></pre><h3 id="添加用户信息，并查看配置文件，添加别名-1"><a href="#添加用户信息，并查看配置文件，添加别名-1" class="headerlink" title="添加用户信息，并查看配置文件，添加别名"></a>添加用户信息，并查看配置文件，添加<a href="#_14">别名</a></h3><pre><code>$ git config --global user.name &quot;lixinwei&quot;
+$ git config --global user.email lixinwei2017@foxmail.com
+$ less ~/.gitconfig
+</code></pre><h3 id="获取帮助-1"><a href="#获取帮助-1" class="headerlink" title="获取帮助"></a>获取帮助</h3><pre><code>$ git help &lt;verb&gt;
+$ git &lt;verb&gt; --help
+$ man git-&lt;verb&gt;
+</code></pre><h2 id="Git-基础-1"><a href="#Git-基础-1" class="headerlink" title="Git 基础"></a>Git 基础</h2><h3 id="在现有目录中初始化仓库-1"><a href="#在现有目录中初始化仓库-1" class="headerlink" title="在现有目录中初始化仓库"></a>在现有目录中初始化仓库</h3><pre><code>$ git init
+</code></pre><p>该命令将创建一个名为 .git 的子目录，这个子目录含有你初始化的 Git 仓库中所有的必须文件，这些文件是 Git 仓库的骨干。 但是，在这个时候，我们仅仅是做了一个初始化的操作，你的项目里的文件还没有被跟踪。</p><pre><code>$ git add *
+$ git commit -m &apos;initial project version&apos;
+</code></pre><p>在一个已经存在文件的文件夹（而不是空文件夹）中初始化 Git 仓库来进行版本控制的话，应该开始跟踪这些文件并提交。</p><h3 id="克隆现有的仓库-1"><a href="#克隆现有的仓库-1" class="headerlink" title="克隆现有的仓库"></a>克隆现有的仓库</h3><pre><code>$ git clone https://github.com/juncaixinchi/blog-generater.git
+</code></pre><p>克隆blog-generater至当前目录</p><h3 id="记录每次更新到仓库-1"><a href="#记录每次更新到仓库-1" class="headerlink" title="记录每次更新到仓库"></a>记录每次更新到仓库</h3><pre><code>$ git add README
+</code></pre><p>使用命令 git add 开始跟踪跟踪 README 文件</p><pre><code>$ git status
+
+$ git status -s
+</code></pre><p>检查当前文件状态，加-s为简略信息</p><h3 id="忽略文件-1"><a href="#忽略文件-1" class="headerlink" title="忽略文件"></a>忽略文件</h3><p>创建一个名为 .gitignore 的文件，列出要忽略的文件模式，文件 .gitignore 的格式规范如下：</p><ul><li>所有空行或者以 ＃ 开头的行都会被 Git 忽略。</li><li><p>要忽略指定模式以外的文件或目录，可以在模式前加上惊叹号（!）取反。</p><pre><code># no .a files
+*.a
+</code></pre></li><li><p>匹配模式可以以（/）开头防止递归。</p><pre><code># only ignore the TODO file in the current directory, not subdir/TODO
+/TODO
+</code></pre></li><li><p>匹配模式可以以（/）结尾指定目录。</p><pre><code># ignore all files in the build/ directory
+build/
+</code></pre></li><li><p>可以使用标准的 glob 模式匹配。</p><pre><code># ignore doc/notes.txt, but not doc/server/arch.txt
+doc/*.txt
+
+# ignore all .pdf files in the doc/ directory
+doc/**/*.pdf
+</code></pre></li></ul><h3 id="提交更新-1"><a href="#提交更新-1" class="headerlink" title="提交更新"></a>提交更新</h3><p>commit命令会提交更新，-m参数可添加提交备注，或者随机生成备注 O__O</p><pre><code>$ git commit -m &quot;update&quot;
+$ git commit -m &quot;`curl -s http://whatthecommit.com/index.txt`&quot;
+</code></pre><p>给 git commit 加上 -a 选项，Git 就会自动把所有已经跟踪过的文件暂存起来一并提交，从而跳过 add 步骤</p><pre><code>$ git commit -a -m &apos;update without git add&apos;
+</code></pre><p>不过正式的提交还是应该避免-m 添加备注，而是详细的添加</p><h3 id="移除文件或移动文件-1"><a href="#移除文件或移动文件-1" class="headerlink" title="移除文件或移动文件"></a>移除文件或移动文件</h3><p>使用 rm 命令将文件从已跟踪文件清单中移除，并连带从工作目录中删除指定的文件，如果删除之前修改过并且已经放到暂存区域的话，则必须要用强制删除选项 -f</p><pre><code>$ git rm file_to_remove.md
+$ git mv file_from file_to
+</code></pre><h3 id="查看提交历史-1"><a href="#查看提交历史-1" class="headerlink" title="查看提交历史"></a>查看提交历史</h3><p>查看所有log</p><pre><code>$ git log
+</code></pre><p>显示最近两次提交的差异</p><pre><code>$ git log -p -2
+</code></pre><p>显示每次提交的简略的统计信息</p><pre><code>$ git log --stat
+</code></pre><p>以pretty的方式显示提交历史</p><pre><code>$ git log --pretty=oneline
+</code></pre><p>添加了一些ASCII字符串来形象地展示你的分支、合并历史：</p><pre><code>$ git log --pretty=format:&quot;%h %s&quot; --graph
+</code></pre><p>只显示作者L在2周内提交的近5条记录</p><pre><code>$ git log --author L --since=2.weeks -5
+</code></pre><h3 id="撤消操作-1"><a href="#撤消操作-1" class="headerlink" title="撤消操作"></a>撤消操作</h3><p>尝试重新提交,第二次提交将代替第一次提交的结果</p><pre><code>$ git commit -m &apos;initial commit&apos;
+$ git add forgotten_file
+$ git commit --amend
+</code></pre><p>取消暂存的文件file_to_cancle.txt(git add 的相反操作)</p><pre><code>$ git reset HEAD file_to_cancle.txt
+</code></pre><p>撤消对文件的修改，恢复文件file_to_restore.txt到上次提交时候的状态</p><pre><code>$ git checkout -- file_to_restore.txt
+</code></pre><h3 id="远程仓库的使用-1"><a href="#远程仓库的使用-1" class="headerlink" title="远程仓库的使用"></a>远程仓库的使用</h3><p>查看远程仓库</p><pre><code>$ git remote -v
+$ git remote show
+</code></pre><p>添加远程仓库，默认为 origin</p><pre><code>$ git remote add &lt;shortname&gt; &lt;url&gt;
+$ git remote add pd https://github.com/juncaixinchi/blog-generater.git
+</code></pre><p>从远程仓库中抓取，默认从origin抓取，也可自定义</p><pre><code>$ git fetch
+$ git fetch https://github.com/juncaixinchi/blog-generater.git
+$ git fetch origin master:tmp
+</code></pre><p>git fetch不会自动merge，需再merge</p><pre><code>$ git fetch origin master:tmp
+$ git diff tmp
+$ git merge tmp
+</code></pre><p>直接从远程获取最新版本并merge到本地</p><pre><code>$ git pull origin master
+</code></pre><p>使用 git push (remote) (branch)推送到远程仓库，默认推送到origin/master, 也可自定义远程仓库及分支（如serverfix）</p><pre><code>$ git push
+$ git push https://github.com/juncaixinchi/blog-generater.git
+$ git push origin serverfix
+$ git push origin serverfix:awesomebranch
+</code></pre><p>设置其他的跟踪分支 - 其他远程仓库上的跟踪分支，或者不跟踪 master 分支</p><pre><code>$ git checkout --track origin/serverfix
+</code></pre><p>远程仓库的移除和重命名</p><pre><code>$ git remote rm paul
+$ git remote rename pb paul
+</code></pre><p>删除远程分支serverfix</p><pre><code>$ git push origin --delete serverfix
+</code></pre><h3 id="打标签-1"><a href="#打标签-1" class="headerlink" title="打标签"></a>打标签</h3><p>列出已有标签</p><pre><code>$ git tag
+</code></pre><p>创建一个附注标签，指定提交的校验和（或部分校验和）则可后期打标签</p><pre><code>$ git tag -a v1.4 -m &apos;my version 1.4&apos;
+$ git tag -a v0.0 -m &quot;origin version&quot; c76e548
+</code></pre><p>共享标签</p><pre><code>$ git push origin v1.5
+</code></pre><h3 id="设置别名-1"><a href="#设置别名-1" class="headerlink" title="设置别名"></a>设置别名</h3><p>通过 config 为命令设置别名，外部程序的命令则要加!，使用cmu直接add 及 commit</p><pre><code>$ git config --global alias.co checkout
+$ git config --global alias.br branch
+$ git config --global alias.st status
+$ git config --global alias.last &apos;log -1 HEAD&apos;
+$ git config --global alias.hexo &apos;!hexo g -delpoy&apos;
+$ git config --global alias.cmu &apos;commit -a -m &quot;update&quot;&apos;
+$ git config --global alias.logbr &apos;log --oneline --decorate --graph --all -20&apos;
+</code></pre><h2 id="Git-分支-1"><a href="#Git-分支-1" class="headerlink" title="Git 分支"></a>Git 分支</h2><h3 id="分支的新建和合并-1"><a href="#分支的新建和合并-1" class="headerlink" title="分支的新建和合并"></a>分支的新建和合并</h3><p>创建分支testing，分支切换为testing，然后commit内容将在test分支进行</p><pre><code>$ git branch testing
+$ git checkout testing
+</code></pre><p>或者在过去某个版本，如593015f,建立分支testing</p><pre><code>$ git log --oneline --decorate --graph --all
+$ git checkout 593015f
+$ git checkout -b testing
+</code></pre><p>使用 log 命令查看各个分支当前所指的对象。 提供这一功能的参数是 –decorate。</p><pre><code>$ git log --oneline --decorate
+$ git log --oneline --decorate --graph --all
+</code></pre><p>使用 merge 来合并分支</p><pre><code>$ git merger testing
+</code></pre><p>如果 master 和 testing 分支都各有提交新版本，则无法自动合并，会出现如下错误，需要手动编辑冲突的文件，然后再 commit，</p><pre><code>Auto Merge Failed; Fix Conflicts and Then Commit the Result
+</code></pre><p>例如冲突的文件内容为：</p><pre><code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD:index.html
+&lt;div id=&quot;footer&quot;&gt;contact : email.support@github.com&lt;/div&gt;
+=======
+&lt;div id=&quot;footer&quot;&gt;
+ please contact us at support@github.com
+&lt;/div&gt;
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; testing:index.html
+</code></pre><p>这表示 HEAD 所指示的版本（也就是你的 master 分支所在的位置）在这个区段的上半部分（======= 的上半部分），而 testing 分支所指示的版本在 ======= 的下半部分。 为了解决冲突，必须选择使用由 ======= 分割的两部分中的一个，或者也可以自行合并这些内容。 例如，通过把这段内容换成下面的样子来解决冲突：</p><pre><code>&lt;div id=&quot;footer&quot;&gt;
+please contact us at email.support@github.com
+&lt;/div&gt;
+</code></pre><p>另外也可以使用图形化工具来解决冲突</p><pre><code>$ git mergetool
+</code></pre><p>合并完成后删除分支testing</p><pre><code>$ git branch -d testing
+</code></pre><h3 id="分支的管理-1"><a href="#分支的管理-1" class="headerlink" title="分支的管理"></a>分支的管理</h3><p>显示分支列表</p><pre><code>$ git branch
+</code></pre><p>查看每一个分支的最后一次提交</p><pre><code>$ git branch -v
+</code></pre><p>查看已经合并或尚未合并到当前分支的分支</p><pre><code>$ git branch --merged
+$ git branch --no-merged
+</code></pre><p>删除和强制删除分支</p><pre><code>$ git branch -d testing
+$ git branch -D testing
+</code></pre><h3 id="分支整合之变基-1"><a href="#分支整合之变基-1" class="headerlink" title="分支整合之变基"></a>分支整合之变基</h3><p>使用 rebase 命令将提交到某一分支 testing 上的所有修改都移至另一分支 master 上，然后回到 master 分支，进行一次快进合并。</p><pre><code>$ git checkout testing
+$ git rebase master
+
+$ git checkout master
+$ git merge testing
+</code></pre><p>直接将特性分支（testing）变基到目标分支（即 master）上</p><pre><code>$ git rebase master testing
+</code></pre><p>对两个分支进行变基时，将 client 中的修改合并到主分支并发布，但暂时并不合并 server 中的修改</p><pre><code>$ git rebase --onto master server client
+</code></pre><p>变基的风险：<code>不要对在仓库外有副本的分支执行变基</code></p><h2 id="Git协议-1"><a href="#Git协议-1" class="headerlink" title="Git协议"></a>Git协议</h2><h3 id="本地协议-1"><a href="#本地协议-1" class="headerlink" title="本地协议"></a>本地协议</h3><p>本地协议，其中的远程版本库就是硬盘内的另一个目录，一般使用硬链接（hard link）或直接复制所需要的文件，</p><pre><code>$ git clone /opt/git/project.git
+</code></pre><p>增加一个本地版本库到现有的 Git 项目</p><pre><code>$ git remote add local_proj /opt/git/project.git
+</code></pre><h3 id="HTTP-协议-1"><a href="#HTTP-协议-1" class="headerlink" title="HTTP 协议"></a>HTTP 协议</h3><p>Clone with HTTPS, Use Git or checkout with SVN using the web URL.</p><pre><code>$ git clone https://example.com/gitproject.git
+$ git clone https://github.com/juncaixinchi/blog-generater.git
+</code></pre><h3 id="SSH-协议-1"><a href="#SSH-协议-1" class="headerlink" title="SSH 协议"></a>SSH 协议</h3><p>Clone with SSH, Use an SSH key and passphrase from account.</p><pre><code>$ git clone user@server:project.git
+$ git clone git@github.com:juncaixinchi/blog-generater.git
+</code></pre></div><div></div><div></div><footer class="post-footer"><div class="post-tags"><a href="/Blogs/tags/Git/" rel="tag"># Git</a> <a href="/Blogs/tags/Github/" rel="tag"># Github</a></div><div class="post-nav"><div class="post-nav-next post-nav-item"><a href="/Blogs/2017/02/14/Blog-driven-by-hexo/" rel="next" title="基于Hexo+Next+GitHub搭建个人博客"><i class="fa fa-chevron-left"></i> 基于Hexo+Next+GitHub搭建个人博客</a></div><span class="post-nav-divider"></span><div class="post-nav-prev post-nav-item"></div></div></footer></article><div class="post-spread"></div></div></div><div class="comments" id="comments"></div></div><div class="sidebar-toggle"><div class="sidebar-toggle-line-wrap"><span class="sidebar-toggle-line sidebar-toggle-line-first"></span> <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span> <span class="sidebar-toggle-line sidebar-toggle-line-last"></span></div></div><aside id="sidebar" class="sidebar"><div class="sidebar-inner"><ul class="sidebar-nav motion-element"><li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">文章目录</li><li class="sidebar-nav-overview" data-target="site-overview">站点概览</li></ul><section class="site-overview sidebar-panel"><div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person"><img class="site-author-image" itemprop="image" src="/Blogs/images/avatar.png" alt="俊采新驰"><p class="site-author-name" itemprop="name">俊采新驰</p><p class="site-description motion-element" itemprop="description"></p></div><nav class="site-state motion-element"><div class="site-state-item site-state-posts"><a href="/Blogs/archives"><span class="site-state-item-count">8</span> <span class="site-state-item-name">日志</span></a></div><div class="site-state-item site-state-tags"><a href="/Blogs/tags"><span class="site-state-item-count">10</span> <span class="site-state-item-name">标签</span></a></div></nav><div class="links-of-author motion-element"></div></section><section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active"><div class="post-toc"><div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Git-note"><span class="nav-number">1.</span> <span class="nav-text">Git note</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Git-配置"><span class="nav-number">1.1.</span> <span class="nav-text">Git 配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#获取升级"><span class="nav-number">1.1.1.</span> <span class="nav-text">获取升级</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加用户信息，并查看配置文件，添加别名"><span class="nav-number">1.1.2.</span> <span class="nav-text">添加用户信息，并查看配置文件，添加别名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取帮助"><span class="nav-number">1.1.3.</span> <span class="nav-text">获取帮助</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git-基础"><span class="nav-number">1.2.</span> <span class="nav-text">Git 基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#在现有目录中初始化仓库"><span class="nav-number">1.2.1.</span> <span class="nav-text">在现有目录中初始化仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#克隆现有的仓库"><span class="nav-number">1.2.2.</span> <span class="nav-text">克隆现有的仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#记录每次更新到仓库"><span class="nav-number">1.2.3.</span> <span class="nav-text">记录每次更新到仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#忽略文件"><span class="nav-number">1.2.4.</span> <span class="nav-text">忽略文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#提交更新"><span class="nav-number">1.2.5.</span> <span class="nav-text">提交更新</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#移除文件或移动文件"><span class="nav-number">1.2.6.</span> <span class="nav-text">移除文件或移动文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看提交历史"><span class="nav-number">1.2.7.</span> <span class="nav-text">查看提交历史</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#撤消操作"><span class="nav-number">1.2.8.</span> <span class="nav-text">撤消操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#远程仓库的使用"><span class="nav-number">1.2.9.</span> <span class="nav-text">远程仓库的使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#打标签"><span class="nav-number">1.2.10.</span> <span class="nav-text">打标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置别名"><span class="nav-number">1.2.11.</span> <span class="nav-text">设置别名</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git-分支"><span class="nav-number">1.3.</span> <span class="nav-text">Git 分支</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#分支的新建和合并"><span class="nav-number">1.3.1.</span> <span class="nav-text">分支的新建和合并</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分支的管理"><span class="nav-number">1.3.2.</span> <span class="nav-text">分支的管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分支整合之变基"><span class="nav-number">1.3.3.</span> <span class="nav-text">分支整合之变基</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git协议"><span class="nav-number">1.4.</span> <span class="nav-text">Git协议</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#本地协议"><span class="nav-number">1.4.1.</span> <span class="nav-text">本地协议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP-协议"><span class="nav-number">1.4.2.</span> <span class="nav-text">HTTP 协议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SSH-协议"><span class="nav-number">1.4.3.</span> <span class="nav-text">SSH 协议</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Git-note-1"><span class="nav-number">2.</span> <span class="nav-text">Git note</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Git-配置-1"><span class="nav-number">2.1.</span> <span class="nav-text">Git 配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#获取升级-1"><span class="nav-number">2.1.1.</span> <span class="nav-text">获取升级</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加用户信息，并查看配置文件，添加别名-1"><span class="nav-number">2.1.2.</span> <span class="nav-text">添加用户信息，并查看配置文件，添加别名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取帮助-1"><span class="nav-number">2.1.3.</span> <span class="nav-text">获取帮助</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git-基础-1"><span class="nav-number">2.2.</span> <span class="nav-text">Git 基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#在现有目录中初始化仓库-1"><span class="nav-number">2.2.1.</span> <span class="nav-text">在现有目录中初始化仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#克隆现有的仓库-1"><span class="nav-number">2.2.2.</span> <span class="nav-text">克隆现有的仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#记录每次更新到仓库-1"><span class="nav-number">2.2.3.</span> <span class="nav-text">记录每次更新到仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#忽略文件-1"><span class="nav-number">2.2.4.</span> <span class="nav-text">忽略文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#提交更新-1"><span class="nav-number">2.2.5.</span> <span class="nav-text">提交更新</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#移除文件或移动文件-1"><span class="nav-number">2.2.6.</span> <span class="nav-text">移除文件或移动文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看提交历史-1"><span class="nav-number">2.2.7.</span> <span class="nav-text">查看提交历史</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#撤消操作-1"><span class="nav-number">2.2.8.</span> <span class="nav-text">撤消操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#远程仓库的使用-1"><span class="nav-number">2.2.9.</span> <span class="nav-text">远程仓库的使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#打标签-1"><span class="nav-number">2.2.10.</span> <span class="nav-text">打标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置别名-1"><span class="nav-number">2.2.11.</span> <span class="nav-text">设置别名</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git-分支-1"><span class="nav-number">2.3.</span> <span class="nav-text">Git 分支</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#分支的新建和合并-1"><span class="nav-number">2.3.1.</span> <span class="nav-text">分支的新建和合并</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分支的管理-1"><span class="nav-number">2.3.2.</span> <span class="nav-text">分支的管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分支整合之变基-1"><span class="nav-number">2.3.3.</span> <span class="nav-text">分支整合之变基</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git协议-1"><span class="nav-number">2.4.</span> <span class="nav-text">Git协议</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#本地协议-1"><span class="nav-number">2.4.1.</span> <span class="nav-text">本地协议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP-协议-1"><span class="nav-number">2.4.2.</span> <span class="nav-text">HTTP 协议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SSH-协议-1"><span class="nav-number">2.4.3.</span> <span class="nav-text">SSH 协议</span></a></li></ol></li></ol></li></ol></div></div></section></div></aside></div></main><footer id="footer" class="footer"><div class="footer-inner"><div class="copyright">&copy; <span itemprop="copyrightYear">2017</span> <span class="with-love"><i class="fa fa-heart"></i> </span><span class="author" itemprop="copyrightHolder">俊采新驰</span></div><div class="powered-by">由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动</div><div class="theme-info">主题 - <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a></div></div></footer><div class="back-to-top"><i class="fa fa-arrow-up"></i></div></div><script type="text/javascript">"[object Function]"!==Object.prototype.toString.call(window.Promise)&&(window.Promise=null)</script><script type="text/javascript" src="/Blogs/lib/jquery/index.js?v=2.1.3"></script><script type="text/javascript" src="/Blogs/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script><script type="text/javascript" src="/Blogs/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script><script type="text/javascript" src="/Blogs/lib/velocity/velocity.min.js?v=1.2.1"></script><script type="text/javascript" src="/Blogs/lib/velocity/velocity.ui.min.js?v=1.2.1"></script><script type="text/javascript" src="/Blogs/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script><script type="text/javascript" src="/Blogs/js/src/utils.js?v=5.1.0"></script><script type="text/javascript" src="/Blogs/js/src/motion.js?v=5.1.0"></script><script type="text/javascript" src="/Blogs/js/src/affix.js?v=5.1.0"></script><script type="text/javascript" src="/Blogs/js/src/schemes/pisces.js?v=5.1.0"></script><script type="text/javascript" src="/Blogs/js/src/scrollspy.js?v=5.1.0"></script><script type="text/javascript" src="/Blogs/js/src/post-details.js?v=5.1.0"></script><script type="text/javascript" src="/Blogs/js/src/bootstrap.js?v=5.1.0"></script></body></html>
