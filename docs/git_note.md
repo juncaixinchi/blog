@@ -157,6 +157,17 @@ Git note
 		
 		$ git fetch
 		$ git fetch https://github.com/juncaixinchi/blog-generater.git
+		$ git fetch origin master:tmp
+
+	git fetch不会自动merge，需再merge
+
+		$ git fetch origin master:tmp
+		$ git diff tmp 
+		$ git merge tmp
+
+	直接从远程获取最新版本并merge到本地
+	
+		$ git pull origin master
 
 	推送到远程仓库，默认推送到origin，也可自定义
 		
@@ -182,3 +193,15 @@ Git note
 	共享标签
 
 		$ git push origin v1.5
+
+12. Git 别名
+
+	通过 git config 文件来为命令设置别名
+
+		$ git config --global alias.co checkout
+		$ git config --global alias.br branch
+		$ git config --global alias.ci commit
+		$ git config --global alias.st status
+		$ git config --global alias.last 'log -1 HEAD'
+
+
