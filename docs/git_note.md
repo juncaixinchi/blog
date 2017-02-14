@@ -160,22 +160,32 @@ commit命令会提交更新，-m参数可添加提交备注
 git fetch不会自动merge，需再merge
 
 	$ git fetch origin master:tmp
-	$ git diff tmp 
+	$ git diff tmp
 	$ git merge tmp
 
 直接从远程获取最新版本并merge到本地
 
 	$ git pull origin master
 
-推送到远程仓库，默认推送到origin，也可自定义
+使用 git push (remote) (branch)推送到远程仓库，默认推送到origin/master, 也可自定义远程仓库及分支（如serverfix）
 	
 	$ git push
 	$ git push https://github.com/juncaixinchi/blog-generater.git
+	$ git push origin serverfix
+	$ git push origin serverfix:awesomebranch
+
+设置其他的跟踪分支 - 其他远程仓库上的跟踪分支，或者不跟踪 master 分支
+
+	$ git checkout --track origin/serverfix
 
 远程仓库的移除和重命名
 
 	$ git remote rm paul
 	$ git remote rename pb paul
+
+删除远程分支serverfix
+
+	$ git push origin --delete serverfix
 
 ### 打标签
 
@@ -204,7 +214,7 @@ git fetch不会自动merge，需再merge
 	$ git config --global alias.cmu 'commit -a -m "update"'
 	$ git config --global alias.logbr 'log --oneline --decorate --graph --all -20'
 
-### 分支
+### 分支的新建和合并
 
 创建分支testing，分支切换为testing，然后commit内容将在test分支进行
 
@@ -213,9 +223,9 @@ git fetch不会自动merge，需再merge
 
 或者在过去某个版本，如593015f,建立分支testing
 
-	$ git log --oneline --decorate --graph --all -20
+	$ git log --oneline --decorate --graph --all
 	$ git checkout 593015f
-	$ git branch -b testing
+	$ git checkout -b testing
 
 使用 log 命令查看各个分支当前所指的对象。 提供这一功能的参数是 --decorate。
 
@@ -226,10 +236,63 @@ git fetch不会自动merge，需再merge
 
 	$ git merger testing
 
-如果 master 和 testing 分支都各有提交新版本，则无法自动合并，会出现如下错误，需要手动编辑冲突的文件，然后再 commit
+如果 master 和 testing 分支都各有提交新版本，则无法自动合并，会出现如下错误，需要手动编辑冲突的文件，然后再 commit，
 
 	Auto Merge Failed; Fix Conflicts and Then Commit the Result
+
+例如冲突的文件内容为：
+
+	<<<<<<< HEAD:index.html
+	<div id="footer">contact : email.support@github.com</div>
+	=======
+	<div id="footer">
+	 please contact us at support@github.com
+	</div>
+	>>>>>>> testing:index.html
+
+这表示 HEAD 所指示的版本（也就是你的 master 分支所在的位置）在这个区段的上半部分（======= 的上半部分），而 testing 分支所指示的版本在 ======= 的下半部分。 为了解决冲突，必须选择使用由 ======= 分割的两部分中的一个，或者也可以自行合并这些内容。 例如，通过把这段内容换成下面的样子来解决冲突：
+
+	<div id="footer">
+	please contact us at email.support@github.com
+	</div>
+
+另外也可以使用图形化工具来解决冲突
+
+	$ git mergetool
 
 合并完成后删除分支testing
 
 	$ git branch -d testing
+
+### 分支的管理
+
+显示分支列表
+
+	$ git branch
+
+查看每一个分支的最后一次提交
+
+	$ git branch -v
+
+查看已经合并或尚未合并到当前分支的分支
+
+	$ git branch --merged
+	$ git branch --no-merged
+
+删除和强制删除分支
+
+	$ git branch -d testing
+	$ git branch -D testing
+
+### 分支整合之变基
+
+使用 rebase 命令将提交到某一分支上的所有修改都移至另一分支上，然后回到 master 分支，进行一次快进合并。
+
+	$ git checkout testing
+	$ git rebase master
+	
+	$ git checkout master
+	$ git merge testing
+
+
+
