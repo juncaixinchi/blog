@@ -211,12 +211,22 @@ Git note
 
 		$ git branch testing
 
+<<<<<<< HEAD
 	分支切换为testing，然后commit内容将在test分支进行
 
 		$ git checkout testing
 
+=======
+>>>>>>> testing
 	使用 git log 命令查看各个分支当前所指的对象。 提供这一功能的参数是 --decorate。
 
 		$ git log --oneline --decorate
 		$ git log --oneline --decorate --graph --all
+<<<<<<< HEAD
+=======
+
+	分支切换
+
+		$ git checkout testing
+>>>>>>> testing
 
