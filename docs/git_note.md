@@ -82,13 +82,16 @@ Git note
 
 ### 提交更新
 
-commit命令会提交更新，-m参数可添加提交备注
+commit命令会提交更新，-m参数可添加提交备注，或者随机生成备注 O__O
 
 	$ git commit -m "update"
+	$ git commit -m "`curl -s http://whatthecommit.com/index.txt`"
 
 给 git commit 加上 -a 选项，Git 就会自动把所有已经跟踪过的文件暂存起来一并提交，从而跳过 add 步骤
 
 	$ git commit -a -m 'update without git add'
+
+不过正式的提交还是应该避免-m 添加备注，而是详细的添加
 
 ### 移除文件或移动文件
 
@@ -214,6 +217,8 @@ git fetch不会自动merge，需再merge
 	$ git config --global alias.cmu 'commit -a -m "update"'
 	$ git config --global alias.logbr 'log --oneline --decorate --graph --all -20'
 
+## Git 分支
+
 ### 分支的新建和合并
 
 创建分支testing，分支切换为testing，然后commit内容将在test分支进行
@@ -304,3 +309,28 @@ git fetch不会自动merge，需再merge
 
 变基的风险：`不要对在仓库外有副本的分支执行变基`
 
+## Git协议
+
+### 本地协议
+
+本地协议，其中的远程版本库就是硬盘内的另一个目录，一般使用硬链接（hard link）或直接复制所需要的文件，
+	
+	$ git clone /opt/git/project.git
+
+增加一个本地版本库到现有的 Git 项目
+
+	$ git remote add local_proj /opt/git/project.git
+
+### HTTP 协议
+
+Clone with HTTPS, Use Git or checkout with SVN using the web URL. 
+
+	$ git clone https://example.com/gitproject.git
+	$ git clone https://github.com/juncaixinchi/blog-generater.git
+
+### SSH 协议
+
+Clone with SSH, Use an SSH key and passphrase from account.
+	
+	$ git clone user@server:project.git
+	$ git clone git@github.com:juncaixinchi/blog-generater.git
