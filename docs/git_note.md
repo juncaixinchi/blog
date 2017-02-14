@@ -228,4 +228,8 @@ Git note
 
 		Auto Merge Failed; Fix Conflicts and Then Commit the Result
 
+	合并完成后删除分支testing
+
+		$ git branch -d testing
+
 	
