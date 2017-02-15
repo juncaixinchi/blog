@@ -654,8 +654,6 @@ git fetch不会自动merge，需再merge
 
 变基的风险：`不要对在仓库外有副本的分支执行变基`
 
-## Git协议
-
 ### 本地协议
 
 本地协议，其中的远程版本库就是硬盘内的另一个目录，一般使用硬链接（hard link）或直接复制所需要的文件，
@@ -679,3 +677,13 @@ Clone with SSH, Use an SSH key and passphrase from account.
 	
 	$ git clone user@server:project.git
 	$ git clone git@github.com:juncaixinchi/blog-generater.git
+
+### 子模块
+
+将一个已存在的 Git 仓库添加为正在工作的仓库的子模块。
+
+	$ git submodule add git@github.com:juncaixinchi/hexo-theme-next.git themes/next
+
+	$ git submodule init
+
+	$ git submodule update
