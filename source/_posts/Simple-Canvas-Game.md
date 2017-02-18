@@ -9,6 +9,8 @@ tags:
 
 利用HTML5 Canvas制作小游戏的简单教程，详见 [simple_canvas_game](https://github.com/juncaixinchi/simple_canvas_game)
 
+<-- more -->
+
 ## 1. 创建一个Canvas对象
 
 ```javascript
