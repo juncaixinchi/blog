@@ -364,18 +364,18 @@ function abs() {
 
 ```javascript
 function foo(a, b, ...rest) {
-    console.log('a = ' + a);
-    console.log('b = ' + b);
-    console.log(rest);
+	console.log('a = ' + a);
+	console.log('b = ' + b);
+	console.log(rest);
 }
 // sum()函数，接收任意个参数并返回它们的和
 function sum(x, ...rest) {
-    let tmp = 0;
-    if(x) tmp += x;
-    for(let i of rest){
-        tmp += i;
-    }
-    return tmp;
+	let tmp = 0;
+	if(x) tmp += x;
+	for(let i of rest){
+		tmp += i;
+	}
+	return tmp;
 }
 
 ```
@@ -390,7 +390,7 @@ var course = 'Learn JavaScript';
 console.log(course); // 'Learn JavaScript'
 console.log(window.course); // 'Learn JavaScript'
 function foo() {
-    console.log('you foo');
+	console.log('you foo');
 }
 foo(); // 直接调用foo()
 window.foo(); // 通过window.foo()调用
@@ -400,11 +400,11 @@ ES6引入了新的关键字`let`，用`let`替代`var`可以申明一个块级�
 
 ```javascript
 function foo() {
-    var sum = 0;
-    for (let i=0; i<100; i++) {
-        sum += i;
-    }
-    return sum;
+	var sum = 0;
+	for (let i=0; i<100; i++) {
+		sum += i;
+	}
+	return sum;
 }
 ```
 
@@ -422,12 +422,12 @@ PI; // 3.14
 
 ```javascript
 var xiaoming = {
-    name: '小明',
-    birth: 1990,
-    age: function () {
-        var y = new Date().getFullYear();
-        return y - this.birth;
-    }
+	name: '小明',
+	birth: 1990,
+	age: function () {
+		var y = new Date().getFullYear();
+		return y - this.birth;
+	}
 };
 xiaoming.age(); //2017年则是27
 ```
@@ -436,13 +436,13 @@ xiaoming.age(); //2017年则是27
 
 ```javascript
 function getAge() {
-    var y = new Date().getFullYear();
-    return y - this.birth;
+	var y = new Date().getFullYear();
+	return y - this.birth;
 }
 var xiaoming = {
-    name: '小明',
-    birth: 1990,
-    age: getAge
+	name: '小明',
+	birth: 1990,
+	age: getAge
 };
 xiaoming.age(); // 25
 getAge.apply(xiaoming, []); // 25, this指向xiaoming, 参数为空
@@ -465,7 +465,7 @@ Math.max.call(null, 3, 5, 4); // 5
 var count = 0;
 var oldParseInt = parseInt; // 保存原函数
 window.parseInt = function () {
-    count += 1;
+	count += 1;
     return oldParseInt.apply(null, arguments); // 调用原函数
 };
 
@@ -480,38 +480,283 @@ count; // 12
 
 ## 高阶函数
 
-map/reduce
+`map()`方法将array内的每一个元素一次处理
 
 ```javascript
+function pow(x) {
+	return x * x;
+}
+
+var arr = [1, 2, 3];
+arr.map(pow); // [1, 4, 9]
+arr.map(String);//["1","2","3"]
+```
+`reduce()`方法把一个函数作用在这个Array的[x1, x2, x3...]上，这个函数必须接收两个参数，reduce()把结果继续和序列的下一个元素做累积计算
+
+```javascript
+[x1, x2, x3, x4].reduce(f) = f(f(f(x1, x2), x3), x4)
+// 求和
+var arr = [1, 3, 5, 7, 9];
+arr.reduce(function (x, y) {
+	return x + y;
+}); // 25
+//将字符串转化为Number的函数
+function string2int(s) {
+	return s.split("").map(function(x){return x-0}).reduce(function(x,y){return x*10+y});
+}
+string2int("23434");//23434
+```
+
+`filter()`方法把传入的函数依次作用于array的每个元素，然后根据返回值是true还是false决定保留还是丢弃该元素
+
+```javascript
+
+// 删掉Array中的空字符串
+var arr = ['A', '', 'B', null, undefined, 'C', '  '];
+var r = arr.filter(function (s) {
+    return s && s.trim(); // 注意：IE9以下的版本没有trim()方法
+});
+arr; // ['A', 'B', 'C']
+
+// 回调函数
+var arr = ['A', 'B', 'C'];
+var r = arr.filter(function (element, index, self) {
+    console.log(element); // 依次打印'A', 'B', 'C'
+    console.log(index); // 依次打印0, 1, 2
+    console.log(self); // self就是变量arr
+    return true;
+});
+
+// 去除array中的重复元素
+var
+r,
+arr = ['1', '1', '2', '3', '2', '4', '5', '1'];
+r = arr.filter(function (element, index, self) {
+	return self.indexOf(element) === index;
+});//["1", "2", "3", "4", "5"]
 
 ```
 
-filter
+`sort()`方法默认把所有元素先转换为String再以ASCII排序，直接使用对数字排序会有大Bug，可通过自定义方式解决问题。
+`sort()`方法会直接对Array进行修改，它返回的结果仍是当前Array
 
 ```javascript
+// 升序排列
+var arr = [10, 20, 1, 2];
+a2 = arr.sort(function (x, y) {
+	if (x < y) {
+		return -1;
+	}
+	if (x > y) {
+		return 1;
+	}
+	return 0;
+}); // [1, 2, 10, 20]
 
-```
-
-sort
-
-```javascript
-
+a2 = arr; // true
 ```
 
 ## 闭包
 
-```javascript
+闭包就是能够读取其他函数内部变量的函数，由于在Javascript语言中，只有函数内部的子函数才能读取局部变量，因此可以把闭包简单理解成"定义在一个函数内部的函数"，在本质上，闭包就是将函数内部和函数外部连接起来的一座桥梁
 
+```javascript
+function f1(){
+	var n=999;
+	nAdd=function(){n+=1};
+	function f2(){
+		console.log(n);
+	}
+	return f2;
+}
+var result=f1();
+result(); // 999
+nAdd();
+result(); // 1000
+// 函数f1中的局部变量n一直保存在内存中，并没有在f1调用后被自动清除
 ```
 
 ## 箭头函数
 
-```javascript
+ES6标准新增了一种新的函数：Arrow Function（箭头函数）
 
+```javascript
+x => x * x
+// 相当于
+function (x) {
+	return x * x;
+}
 ```
 
-## generator
+箭头函数完全修复了this的指向，this总是指向词法作用域，也就是外层调用者obj
 
 ```javascript
+var obj = {
+	birth: 1990,
+	getAge: function () {
+        var b = this.birth; // 1990
+        var fn = () => new Date().getFullYear() - this.birth; // this指向obj对象
+        return fn();
+    }
+};
+obj.getAge(); // 25
+```
+## generator
 
+generator（生成器）是ES6标准引入的新的数据类型，使用function*定义。一个generator看上去像一个函数，但可以返回多次
+
+```javascript
+//斐波那契数列
+function* fib(min,max) {
+	var
+		t,
+		a = 0,
+		b = 1,
+		n = 1;
+	while (n <= max) {
+		if(n >= min){ yield a; }
+		t = a + b;
+		a = b;
+		b = t;
+		n ++;
+	}
+	return a;
+}
+for (let x of fib(4,5)) {
+    console.log(x); // 依次输出2, 3
+}
+```
+
+## 对象
+
+类型转换和判断需要注意的问题：
+
++ 用`parseInt()`或`parseFloat()`来转换任意类型到`number`；
+
++ 用`String()`来转换任意类型到`string`，或者直接调用某个对象的`toString()`方法；
+
++ 通常不必把任意类型转换为`boolean`再判断，因为可以直接写`if (myVar) {...}`；
+
++ `typeof`操作符可以判断出`number`、`boolean`、`string`、`function`和`undefined`；
+
++ 判断`Array`要使用`Array.isArray(arr)`；
+
++ 判断`null`请使用`myVar === null`；
+
++ 判断某个全局变量是否存在用`typeof window.myVar === 'undefined'`；
+
++ 函数内部判断某个变量是否存在用`typeof myVar === 'undefined'`。
+
+```javascript
+//number的toString()要特殊处理
+123..toString(); // '123', 注意是两个点！
+(123).toString(); // '123'
+```
+## Date 对象
+
+在JavaScript中，Date对象用来表示日期和时间，使用`Date()`获取系统时间；
+
+```javascript
+var now = new Date();
+now; // Mon Feb 27 2017 22:24:10 GMT+0800 (中国标准时间)
+now.getFullYear(); // 2017, 年份
+now.getMonth(); // 1, 月份，注意月份范围是0~11，1表示二月
+now.getDate(); // 27, 表示27号
+now.getDay(); // 1, 表示星期一
+now.getHours(); // 22, 24小时制
+now.getMinutes(); // 24, 分钟
+now.getSeconds(); // 10, 秒
+now.getMilliseconds(); // 264, 毫秒数
+now.getTime(); // 1488205450264, 以number形式表示的时间戳
+
+var d = new Date(1970, 0, 1, 7, 59, 59, 999);
+d; // Thu Jan 01 1970 07:59:59 GMT+0800 (中国标准时间)
+d.getTime(); -1;
+```
+
+## RegExp
+
+正则表达式是一种用来匹配字符串的强有力的武器。它的设计思想是用一种描述性的语言来给字符串定义一个规则，凡是符合规则的字符串，我们就认为它“匹配”了，否则，该字符串就是不合法的
+
+```javascript
+// 匹配正常Email地址的表达式
+var MailCheck = /^[0-9a-zA-Z\_\.]+@[0-9a-zA-Z\_]+\.[0-9a-zA-Z\_]+/;
+MailCheck.exec('juncaixinchi111#gmail.com'); // null
+MailCheck.exec('juncaixinchi111@gmail.com'); // ['juncaixinchi111@gmail.com']
+```
+
+## JSON
+
+JSON是JavaScript Object Notation的缩写，它是一种数据交换格式
+
+使用`JSON.stringify()`把对象序列化成JSON格式的字符串：
+
+```javascript
+var xiaoming = {
+    name: '小明',
+    age: 14,
+    gender: true,
+    height: 1.65,
+    grade: null,
+    'middle-school': '\"W3C\" Middle School',
+    skills: ['JavaScript', 'Java', 'Python', 'Lisp']
+};
+JSON.stringify(xiaoming); // '{"name":"小明","age":14,"gender":true,"height":1.65,"grade":null,"middle-school":"\"W3C\" Middle School","skills":["JavaScript","Java","Python","Lisp"]}'
+```
+
+按缩进输出：
+
+```javascript
+JSON.stringify(xiaoming, null, '  ');
+// 结果
+{
+  "name": "小明",
+  "age": 14,
+  "gender": true,
+  "height": 1.65,
+  "grade": null,
+  "middle-school": "\"W3C\" Middle School",
+  "skills": [
+    "JavaScript",
+    "Java",
+    "Python",
+    "Lisp"
+  ]
+}
+```
+
+给对象定义一个`toJSON()`的方法，直接返回JSON应该序列化的数据
+
+```javascript
+var xiaoming = {
+    name: '小明',
+    age: 14,
+    gender: true,
+    height: 1.65,
+    grade: null,
+    'middle-school': '\"W3C\" Middle School',
+    skills: ['JavaScript', 'Java', 'Python', 'Lisp'],
+    toJSON: function () {
+        return { // 只输出name和age，并且改变了key：
+            'Name': this.name,
+            'Age': this.age
+        };
+    }
+};
+
+JSON.stringify(xiaoming); // '{"Name":"小明","Age":14}'
+```
+
+使用`JSON.parse()`反序列化
+
+```javascript
+JSON.parse('{"name":"小明","age":14}'); // Object {name: '小明', age: 14}
+// 接收一个函数，用来转换解析出的属性
+JSON.parse('{"name":"小明","age":14}', function (key, value) {
+    // 把number * 2:
+    if (key === 'name') {
+        return value + '同学';
+    }
+    return value;
+}); // Object {name: '小明同学', age: 14}
 ```
