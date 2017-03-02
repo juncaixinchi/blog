@@ -9,11 +9,13 @@ tags:
 Markdown语法摘要
 ===
 
-> # 基本格式
+### 基本格式
 
 标记+空格+内容
 
-> # 标题
+<!-- more -->
+
+### 标题
 
     # 一级标题 #
     
@@ -31,9 +33,7 @@ Markdown语法摘要
     二级标题  
     ---
 
-<!-- more -->
-
-> # 列表
+### 列表
 
     + 无序列表
     
@@ -44,43 +44,40 @@ Markdown语法摘要
     1. 有序列表
     
     2. 有序列表
-> # 引用
+### 引用
 
     > 引用
 
 MarkdownPad2快捷键为ctrl+q
 
-> # 图片与链接
+### 图片与链接
 
-* 行内式：
+链接：
 
-    链接为：
     []()
-    例如：
     [github](https://github.com)
 
-图片为：`![]()`
-例如：`![icon](https://juncaixinchi.github.io/juncaixinchi.xyz/favicon.ico)`
-实例：
-    
-[github](https://github.com)
+图片：
 
-![icon](https://juncaixinchi.github.io/juncaixinchi.xyz/favicon.ico)
+    ![]()
+    ![icon](https://juncaixinchi.github.io/juncaixinchi.xyz/favicon.ico)
+
+实例效果：
+
+[github](https://github.com) ![icon](https://juncaixinchi.github.io/juncaixinchi.xyz/favicon.ico)
 
 或者
 
     This is [an example][id] reference-style link.
-    
+        
     [id]: http://example.com/  "Optional Title Here"
 
 实例:
 
 This is [an example][id] reference-style link.
-
 [id]: http://example.com/  "Optional Title Here"
 
-
-> # 文本样式
+### 文本样式
     
     *斜体文本*
     _斜体文本_
@@ -90,19 +87,25 @@ This is [an example][id] reference-style link.
 
 注意必须前后包围，且不连空格
 
-样式：
+样式： *斜体文本*  __粗体文本__
 
-*斜体文本*
+### 代码框
 
-__粗体文本__
+使用 ` 符号
 
-> # 代码框
-    
     ` code `
+
+Tab和空格
     
     Tab或4个空格+code
 
-> # 分割线
+使用```包裹的方式，可加具体语言类型
+
+    ```javascript
+    code
+    ```
+
+### 分割线
 
     ***
     * * *
@@ -115,7 +118,7 @@ __粗体文本__
 
 ***
 
-> # 转义
+### 需要转义的字符
 
     \   反斜线
     `   反引号

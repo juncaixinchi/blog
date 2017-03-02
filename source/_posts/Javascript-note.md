@@ -12,10 +12,6 @@ tags:
 
 [JavaScript教程](http://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000)
 
-[ECMAScript 6 入门](http://es6.ruanyifeng.com/)
-
-[JS函数式编程指南](https://llh911001.gitbooks.io/mostly-adequate-guide-chinese/content/)
-
 <!-- more -->
 
 ## 字符串
