@@ -2,7 +2,7 @@
 title: ECMAScript-6-note
 date: 2017-03-02 20:38:44
 tags:
-	- javascript
+	- JavaScript
 	- ES6
 ---
 

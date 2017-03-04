@@ -2,7 +2,7 @@
 title: node install note
 date: 2017-02-12 16:39:15
 tags: 
-    - node.js
+    - Node.js
 ---
 
 Node安装与npm环境变量配置

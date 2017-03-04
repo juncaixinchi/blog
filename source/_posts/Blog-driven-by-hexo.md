@@ -3,9 +3,9 @@ title: 基于Hexo+Next+GitHub搭建个人博客
 date: 2017-02-14 16:24:56
 tags: 
     - Hexo
-    - next
+    - Next
     - GitHub Pages
-    - blog
+    - Blog
 ---
 
 
@@ -230,3 +230,15 @@ document.write('<script type="text/javascript" src="' + _base + 'data.js" charse
 然后上传部署，OK
 
 	hexo deploy
+
+### Troubleshooting
+
+{% raw %}
+hexo generate的过程可能会报错，可以到[troubleshooting](https://hexo.io/docs/troubleshooting.html)页面查找原因，如页面中含有`{{ }} or {% %}`可能会报错，可以通过用 raw 标签来避免问题
+{% endraw %}
+
+```
+{% raw %}
+Hello {{ sensitive }}
+{% endraw %}
+```

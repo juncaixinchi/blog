@@ -2,9 +2,9 @@
 title: Github Git Cheat Sheet
 date: 2017-02-12 16:42:19
 tags:
-    - git
+    - Git
     - Github
-    - cheat-sheet
+    - Cheat-sheet
 ---
 
 
