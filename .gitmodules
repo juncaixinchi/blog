@@ -10,3 +10,9 @@
 [submodule "themes/maupassant"]
 	path = themes/maupassant
 	url = https://github.com/tufu9441/maupassant-hexo.git
+[submodule "themes/material-flow"]
+	path = themes/material-flow
+	url = git@github.com:juncaixinchi/hexo-theme-material-flow.git
+[submodule "themes/material"]
+	path = themes/material
+	url = git@github.com:juncaixinchi/hexo-theme-material.git

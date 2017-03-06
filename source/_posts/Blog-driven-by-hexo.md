@@ -175,53 +175,11 @@ Scheme 的切换通过更改 主题配置文件，搜索 scheme 关键字。 你
 </body>
 </html>
 ```
-但是该页面使用http获取js，且其中嵌入的各种链接都是http，而Github要求全部为https。故修改代码（见下面）。其中search_children.js主要提取了data.js及page.js两个文件，前者是寻找儿童的数据，在Github中没问题；后者中默认都是用http加载的js和css，所以不能直接用，故本地化后修改为https方式获取js与css。
-
-```html
-<!DOCTYPE HTML>
-<html>
-<head>
-	<meta http-equiv="content-type" content="text/html;charset=utf-8;"/>
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-	<meta name="robots" content="all" />
-	<meta name="robots" content="index,follow"/>
-</head>
-<body>
-	<script type="text/javascript" src="404/search_children.js" charset="utf-8" homePageUrl="https://juncaixinchi.github.io/Blogs/" homePageName="回到我的主页">
-	</script>
-	<script type="text/javascript" src="404/page.js"></script>
-</body>
-</html>
-```
-添加404目录
-
-	hexo new page "404"
-
-在source/404/，添加新文件search_children.js，内容为：
-
-```js
-var _base = 'https://qzone.qq.com/gy/404/';
-document.write('<script type="text/javascript" src="' + _base + 'data.js" charset="utf-8"></script>');
-```
-
-添加新文件page.js，主要是修改了 [qzone_page.js](https://qzone.qq.com/gy/404/page.js) 内容中外联js和css的链接，将 "http://" 改为 "https://" ，内容详见：[local_page.js](https://raw.githubusercontent.com/juncaixinchi/Blogs/master/404/page.js)
+但是该页面使用http获取js，且其中嵌入的各种链接都是http，而Github要求全部为https。故修改代码（见下面）。其中search_children.js主要提取了data.js及page.js两个文件，前者是寻找儿童的数据，在Github中没问题；后者中默认都是用http加载的js和css，所以不能直接用，故改为https方式获取js与css，直接加入404.html页面，内容详见：[404.html](https://raw.githubusercontent.com/juncaixinchi/Blogs/master/404.html)
 
 然后生成文件
 
 	hexo generate
-
-然而发现问题还没解决，debug N 久后发现，hexo自动生成public文件时，会对page.js处理一下，其中第297行：
-	
-
-	c += "<" + d + ">\n" + a[d] + "\n\n";
-
-变成了以下内容，然后报错(>_<)
-
-	c += "<" +="" d="" "="">\n" + a[d] + "\n\n";
-
-暂时未知原因，只好手动替换page.js解决之
-
-	cp source/404/page.js public/404/page.js
 	
 顺便也可替换404.html，可以避免一次跳转
 
