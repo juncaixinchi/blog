@@ -1,1 +1,231 @@
-<!doctype html><html class="theme-next pisces use-motion" lang="zh-Hans"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link href="/Blogs/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"><link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css"><link href="/Blogs/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css"><link href="/Blogs/css/main.css?v=5.1.0" rel="stylesheet" type="text/css"><meta name="keywords" content="JavaScript,React,state,"><link rel="shortcut icon" type="image/x-icon" href="/Blogs/favicon.ico?v=5.1.0"><meta name="description" content="很多情况下，几个组件之间需要共享state。此时就可以利用提升共同state至附组件的方法来处理，参见：Lifting State Up"><meta property="og:type" content="article"><meta property="og:title" content="Lifting-State-Up"><meta property="og:url" content="https://juncaixinchi.github.io/Blogs/2017/03/10/Lifting-State-Up/index.html"><meta property="og:site_name" content="俊采新驰"><meta property="og:description" content="很多情况下，几个组件之间需要共享state。此时就可以利用提升共同state至附组件的方法来处理，参见：Lifting State Up"><meta property="og:updated_time" content="2017-03-16T12:40:06.625Z"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="Lifting-State-Up"><meta name="twitter:description" content="很多情况下，几个组件之间需要共享state。此时就可以利用提升共同state至附组件的方法来处理，参见：Lifting State Up"><script type="text/javascript" id="hexo.configurations">var NexT=window.NexT||{},CONFIG={root:"/Blogs/",scheme:"Pisces",sidebar:{position:"left",display:"post"},fancybox:!0,motion:!0,duoshuo:{userId:"0",author:"博主"},algolia:{applicationID:"",apiKey:"",indexName:"",hits:{per_page:10},labels:{input_placeholder:"Search for Posts",hits_empty:"We didn't find any results for the search: ${query}",hits_stats:"${hits} results found in ${time} ms"}}}</script><link rel="canonical" href="https://juncaixinchi.github.io/Blogs/2017/03/10/Lifting-State-Up/"><title>Lifting-State-Up | 俊采新驰</title></head><body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans"><div class="container one-collumn sidebar-position-left page-post-detail"><div class="headband"></div><header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="header-inner"><div class="site-meta"><div class="custom-logo-site-title"><a href="/Blogs/" class="brand" rel="start"><span class="logo-line-before"><i></i></span> <span class="site-title">俊采新驰</span> <span class="logo-line-after"><i></i></span></a></div><h1 class="site-subtitle" itemprop="description"></h1></div><div class="site-nav-toggle"><button><span class="btn-bar"></span> <span class="btn-bar"></span> <span class="btn-bar"></span></button></div><nav class="site-nav"><ul id="menu" class="menu"><li class="menu-item menu-item-home"><a href="/Blogs/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i><br>首页</a></li><li class="menu-item menu-item-about"><a href="/Blogs/about" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i><br>关于</a></li><li class="menu-item menu-item-archives"><a href="/Blogs/archives" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i><br>归档</a></li><li class="menu-item menu-item-tags"><a href="/Blogs/tags" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i><br>标签</a></li><li class="menu-item menu-item-commonweal"><a href="/Blogs/404.html" rel="section"><i class="menu-item-icon fa fa-fw fa-heartbeat"></i><br>公益404</a></li></ul></nav></div></header><main id="main" class="main"><div class="main-inner"><div class="content-wrap"><div id="content" class="content"><div id="posts" class="posts-expand"><article class="post post-type-normal" itemscope itemtype="http://schema.org/Article"><link itemprop="mainEntityOfPage" href="https://juncaixinchi.github.io/Blogs/Blogs/2017/03/10/Lifting-State-Up/"><span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person"><meta itemprop="name" content="俊采新驰"><meta itemprop="description" content=""><meta itemprop="image" content="/Blogs/images/avatar.png"></span><span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="俊采新驰"><span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject"><img style="display:none" itemprop="url image" alt="俊采新驰" src=""></span></span><header class="post-header"><h2 class="post-title" itemprop="name headline">Lifting-State-Up</h2><div class="post-meta"><span class="post-time"><span class="post-meta-item-icon"><i class="fa fa-calendar-o"></i> </span><span class="post-meta-item-text">发表于</span> <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-10T21:25:41+08:00">2017-03-10 </time></span><span class="post-comments-count"><span class="post-meta-divider">|</span> <span class="post-meta-item-icon"><i class="fa fa-comment-o"></i> </span><a href="/Blogs/2017/03/10/Lifting-State-Up/#comments" itemprop="discussionUrl"><span class="post-comments-count ds-thread-count" data-thread-key="2017/03/10/Lifting-State-Up/" itemprop="commentCount"></span></a></span></div></header><div class="post-body" itemprop="articleBody"><p>很多情况下，几个组件之间需要共享state。此时就可以利用提升共同state至附组件的方法来处理，参见：<a href="https://facebook.github.io/react/docs/lifting-state-up.html" target="_blank" rel="external">Lifting State Up</a></p><a id="more"></a><p>简单而言就是通过在子组件中使用this.props.state代替this.state，将state托管至父组件，进而共享state。其中原来子组件的this.setState要用this.props.setState或者间接的function代替（如下例子中的handleChange），不过其中要注意使用bind(this)方法。</p><p>以下是一个具体的例子：</p><p>父组件Calculator.jsx</p><figure class="highlight jsx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span></div><div class="line"><span class="keyword">import</span> TemperatureInput <span class="keyword">from</span> <span class="string">'./TemperatureInput'</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">const</span> BoilingVerdict = <span class="function">(<span class="params">props</span>) =&gt;</span> &#123;</div><div class="line">  <span class="keyword">if</span> (props.celsius &gt;= <span class="number">100</span>) &#123;</div><div class="line">    <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">p</span>&gt;</span>The water would boil.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">p</span>&gt;</span>The water would not boil.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">const</span> toCelsius = <span class="function"><span class="params">fahrenheit</span> =&gt;</span> (fahrenheit - <span class="number">32</span>) * <span class="number">5</span> / <span class="number">9</span></div><div class="line"></div><div class="line"><span class="keyword">const</span> toFahrenheit = <span class="function"><span class="params">celsius</span> =&gt;</span> (celsius * <span class="number">9</span> / <span class="number">5</span>) + <span class="number">32</span></div><div class="line"></div><div class="line"><span class="keyword">const</span> tryConvert = <span class="function">(<span class="params">value, convert</span>) =&gt;</span> &#123;</div><div class="line">  <span class="keyword">const</span> input = <span class="built_in">parseFloat</span>(value)</div><div class="line">  <span class="keyword">if</span> (<span class="built_in">Number</span>.isNaN(input)) &#123;</div><div class="line">    <span class="keyword">return</span> <span class="string">''</span></div><div class="line">  &#125;</div><div class="line">  <span class="keyword">const</span> output = convert(input)</div><div class="line">  <span class="keyword">const</span> rounded = <span class="built_in">Math</span>.round(output * <span class="number">1000</span>) / <span class="number">1000</span></div><div class="line">  <span class="keyword">return</span> rounded.toString()</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">Calculator</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</div><div class="line">  <span class="keyword">constructor</span>(props) &#123;</div><div class="line">    <span class="keyword">super</span>(props)</div><div class="line">    <span class="keyword">this</span>.handleCelsiusChange = <span class="keyword">this</span>.handleCelsiusChange.bind(<span class="keyword">this</span>)</div><div class="line">    <span class="keyword">this</span>.handleFahrenheitChange = <span class="keyword">this</span>.handleFahrenheitChange.bind(<span class="keyword">this</span>)</div><div class="line">    <span class="keyword">this</span>.state = &#123; <span class="attr">value</span>: <span class="string">''</span>, <span class="attr">scale</span>: <span class="string">'c'</span> &#125;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  handleCelsiusChange(value) &#123;</div><div class="line">    <span class="keyword">this</span>.setState(&#123; <span class="attr">scale</span>: <span class="string">'c'</span>, value &#125;)</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  handleFahrenheitChange(value) &#123;</div><div class="line">    <span class="keyword">this</span>.setState(&#123; <span class="attr">scale</span>: <span class="string">'f'</span>, value &#125;)</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  render() &#123;</div><div class="line">    <span class="keyword">const</span> scale = <span class="keyword">this</span>.state.scale</div><div class="line">    <span class="keyword">const</span> value = <span class="keyword">this</span>.state.value</div><div class="line">    <span class="keyword">const</span> celsius = scale === <span class="string">'f'</span> ? tryConvert(value, toCelsius) : value</div><div class="line">    <span class="keyword">const</span> fahrenheit = scale === <span class="string">'c'</span> ? tryConvert(value, toFahrenheit) : value</div><div class="line"></div><div class="line">    <span class="keyword">return</span> (</div><div class="line">      &lt;div&gt;</div><div class="line">        &lt;TemperatureInput</div><div class="line">          scale="c"</div><div class="line">          value=&#123;celsius&#125;</div><div class="line">          onChange=&#123;this.handleCelsiusChange&#125;</div><div class="line">        /&gt;</div><div class="line">        &lt;TemperatureInput</div><div class="line">          scale="f"</div><div class="line">          value=&#123;fahrenheit&#125;</div><div class="line">          onChange=&#123;this.handleFahrenheitChange&#125;</div><div class="line">        /&gt;</div><div class="line">        &lt;BoilingVerdict</div><div class="line">          celsius=&#123;parseFloat(celsius)&#125;</div><div class="line">        /&gt;</div><div class="line">      &lt;/div&gt;</div><div class="line">    )</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure><p>子组件TemperatureInput.jsx</p><figure class="highlight jsx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span></div><div class="line"></div><div class="line"><span class="keyword">const</span> scaleNames = &#123;</div><div class="line">  <span class="attr">c</span>: <span class="string">'Celsius'</span>,</div><div class="line">  <span class="attr">f</span>: <span class="string">'Fahrenheit'</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">TemperatureInput</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</div><div class="line"></div><div class="line">  <span class="keyword">constructor</span>(props) &#123;</div><div class="line">    <span class="keyword">super</span>(props)</div><div class="line">    <span class="keyword">this</span>.handleChange = <span class="keyword">this</span>.handleChange.bind(<span class="keyword">this</span>)</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  handleChange(e) &#123;</div><div class="line">    <span class="keyword">this</span>.props.onChange(e.target.value)</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  render() &#123;</div><div class="line">    <span class="keyword">const</span> value = <span class="keyword">this</span>.props.value</div><div class="line">    <span class="keyword">const</span> scale = <span class="keyword">this</span>.props.scale</div><div class="line">    <span class="keyword">return</span> (</div><div class="line">      <span class="xml"><span class="tag">&lt;<span class="name">fieldset</span>&gt;</span></span></div><div class="line">        <span class="tag">&lt;<span class="name">legend</span>&gt;</span>Enter value in &#123;scaleNames[scale]&#125;:<span class="tag">&lt;/<span class="name">legend</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">input</span></span></div><div class="line">          <span class="attr">value</span>=<span class="string">&#123;value&#125;</span></div><div class="line">          <span class="attr">onChange</span>=<span class="string">&#123;this.handleChange&#125;</span></div><div class="line">        /&gt;</div><div class="line">      <span class="tag">&lt;/<span class="name">fieldset</span>&gt;</span></div><div class="line">    )</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure><p>代码可见<a href="https://github.com/juncaixinchi/React-DE/tree/master/src/calculator" target="_blank" rel="external">Github</a></p></div><div></div><div></div><footer class="post-footer"><div class="post-tags"><a href="/Blogs/tags/JavaScript/" rel="tag"># JavaScript</a> <a href="/Blogs/tags/React/" rel="tag"># React</a> <a href="/Blogs/tags/state/" rel="tag"># state</a></div><div class="post-nav"><div class="post-nav-next post-nav-item"><a href="/Blogs/2017/03/04/JSX-Syntax/" rel="next" title="JSX-Syntax"><i class="fa fa-chevron-left"></i> JSX-Syntax</a></div><span class="post-nav-divider"></span><div class="post-nav-prev post-nav-item"><a href="/Blogs/2017/03/18/Vim-Setting/" rel="prev" title="Vim-Setting">Vim-Setting <i class="fa fa-chevron-right"></i></a></div></div></footer></article><div class="post-spread"></div></div></div><div class="comments" id="comments"><div class="ds-thread" data-thread-key="2017/03/10/Lifting-State-Up/" data-title="Lifting-State-Up" data-url="https://juncaixinchi.github.io/Blogs/Blogs/2017/03/10/Lifting-State-Up/"></div></div></div><div class="sidebar-toggle"><div class="sidebar-toggle-line-wrap"><span class="sidebar-toggle-line sidebar-toggle-line-first"></span> <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span> <span class="sidebar-toggle-line sidebar-toggle-line-last"></span></div></div><aside id="sidebar" class="sidebar"><div class="sidebar-inner"><section class="site-overview sidebar-panel sidebar-panel-active"><div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person"><img class="site-author-image" itemprop="image" src="/Blogs/images/avatar.png" alt="俊采新驰"><p class="site-author-name" itemprop="name">俊采新驰</p><p class="site-description motion-element" itemprop="description"></p></div><nav class="site-state motion-element"><div class="site-state-item site-state-posts"><a href="/Blogs/archives"><span class="site-state-item-count">15</span> <span class="site-state-item-name">日志</span></a></div><div class="site-state-item site-state-tags"><a href="/Blogs/tags"><span class="site-state-item-count">19</span> <span class="site-state-item-name">标签</span></a></div></nav><div class="links-of-author motion-element"></div></section></div></aside></div></main><footer id="footer" class="footer"><div class="footer-inner"><div class="copyright">&copy; <span itemprop="copyrightYear">2017</span> <span class="with-love"><i class="fa fa-heart"></i> </span><span class="author" itemprop="copyrightHolder">俊采新驰</span></div><div class="powered-by">由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动</div><div class="theme-info">主题 - <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a></div></div></footer><div class="back-to-top"><i class="fa fa-arrow-up"></i></div></div><script type="text/javascript">"[object Function]"!==Object.prototype.toString.call(window.Promise)&&(window.Promise=null)</script><script type="text/javascript" src="/Blogs/lib/jquery/index.js?v=2.1.3"></script><script type="text/javascript" src="/Blogs/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script><script type="text/javascript" src="/Blogs/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script><script type="text/javascript" src="/Blogs/lib/velocity/velocity.min.js?v=1.2.1"></script><script type="text/javascript" src="/Blogs/lib/velocity/velocity.ui.min.js?v=1.2.1"></script><script type="text/javascript" src="/Blogs/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script><script type="text/javascript" src="/Blogs/js/src/utils.js?v=5.1.0"></script><script type="text/javascript" src="/Blogs/js/src/motion.js?v=5.1.0"></script><script type="text/javascript" src="/Blogs/js/src/affix.js?v=5.1.0"></script><script type="text/javascript" src="/Blogs/js/src/schemes/pisces.js?v=5.1.0"></script><script type="text/javascript" src="/Blogs/js/src/scrollspy.js?v=5.1.0"></script><script type="text/javascript" src="/Blogs/js/src/post-details.js?v=5.1.0"></script><script type="text/javascript" src="/Blogs/js/src/bootstrap.js?v=5.1.0"></script><script type="text/javascript">var duoshuoQuery={short_name:"juncaixinchi"};!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.id="duoshuo-script",t.src=("https:"==document.location.protocol?"https:":"http:")+"//static.duoshuo.com/embed.js",t.charset="UTF-8",(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(t)}()</script><script src="/Blogs/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script><script src="/Blogs/js/src/hook-duoshuo.js"></script></body></html>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  
+  <title>Lifting-State-Up | 俊采新驰</title>
+  <meta name="description" content="不知疲倦的翻越，每一个山丘！" />
+  <meta name="keywords" content="俊采新驰" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="shortcut icon" href="/Blogs/images/favicon.ico">
+  <link rel="alternate" href="/Blogs/atom.xml" title="俊采新驰">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="很多情况下，几个组件之间需要共享state。此时就可以利用提升共同state至附组件的方法来处理，参见：Lifting State Up">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Lifting-State-Up">
+<meta property="og:url" content="https://juncaixinchi.github.io/Blogs/2017/03/10/Lifting-State-Up/index.html">
+<meta property="og:site_name" content="俊采新驰">
+<meta property="og:description" content="很多情况下，几个组件之间需要共享state。此时就可以利用提升共同state至附组件的方法来处理，参见：Lifting State Up">
+<meta property="og:updated_time" content="2017-03-16T12:40:06.625Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Lifting-State-Up">
+<meta name="twitter:description" content="很多情况下，几个组件之间需要共享state。此时就可以利用提升共同state至附组件的方法来处理，参见：Lifting State Up">
+    
+  <link href="https://fonts.googleapis.com/css?family=Inconsolata|Titillium+Web" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+  <link href='//cdn.bootcss.com/node-waves/0.7.5/waves.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="/Blogs/style.css">
+  
+  
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+</head>
+
+<body>
+  <div id="loading-bar-wrapper">
+  <div id="loading-bar"></div>
+</div>
+
+
+  <script>setLoadingBarProgress(20)</script> 
+  <header class="l_header">
+		<div class="wrapper container">
+			<a class="logo flat-box" href='/Blogs/' >
+				俊采新驰
+			</a>
+			<div class='menu'>
+				<ul class='h-list'>
+					
+						<li>
+							<a class='flat-box nav-home' href='/Blogs/'>
+								Home
+							</a>
+						</li>
+					
+						<li>
+							<a class='flat-box nav-archives' href='/Blogs/archives'>
+								Archives
+							</a>
+						</li>
+					
+						<li>
+							<a class='flat-box nav-about' href='/Blogs/about'>
+								About
+							</a>
+						</li>
+					
+				</ul>
+				<div class='underline'></div>
+			</div>
+			
+				<div class="m_search">
+					<form name="searchform" class="form u-search-form">
+						<input type="text" class="input u-search-input" placeholder="Search" />
+						<span class="icon icon-search"></span>
+					</form>
+				</div>
+			
+			<ul class='switcher h-list'>
+				
+					<li class='s-search'><a href='javascript:void(0)'><span class="icon icon-search"></span></a></li>
+				
+				<li class='s-menu'><a href='javascript:void(0)'><span class="icon icon-menu"></span></a></li>
+			</ul>
+		</div>
+		<aside class="menu-phone">
+			<nav>
+				
+					<a href="/Blogs/" class="nav-home nav">
+						Home
+					</a>
+				
+					<a href="/Blogs/archives" class="nav-archives nav">
+						Archives
+					</a>
+				
+					<a href="/Blogs/about" class="nav-about nav">
+						About
+					</a>
+				
+			</nav>
+		</aside>
+</header>
+
+    <script>setLoadingBarProgress(40);</script>
+  <div class="l_body">
+    <div class='container'>
+      <div class='l_main'>
+        <article id="post-Lifting-State-Up"
+  class="post white-box article-type-post"
+  itemscope itemprop="blogPost">
+	<section class='meta'>
+	<h2 class="title">
+  	<a href="/Blogs/2017/03/10/Lifting-State-Up/">
+    	Lifting-State-Up
+    </a>
+  </h2>
+	<time>
+	  3月 10, 2017
+	</time>
+	
+	</section>
+	
+		<section class="tog"></section>
+	
+	<section class="article typo">
+  	<div class="article-entry" itemprop="articleBody">
+    	<p>很多情况下，几个组件之间需要共享state。此时就可以利用提升共同state至附组件的方法来处理，参见：<a href="https://facebook.github.io/react/docs/lifting-state-up.html" target="_blank" rel="external">Lifting State Up</a></p>
+<a id="more"></a>
+<p>简单而言就是通过在子组件中使用this.props.state代替this.state，将state托管至父组件，进而共享state。其中原来子组件的this.setState要用this.props.setState或者间接的function代替（如下例子中的handleChange），不过其中要注意使用bind(this)方法。</p>
+<p>以下是一个具体的例子：</p>
+<p>父组件Calculator.jsx</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span></div><div class="line"><span class="keyword">import</span> TemperatureInput <span class="keyword">from</span> <span class="string">'./TemperatureInput'</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">const</span> BoilingVerdict = <span class="function">(<span class="params">props</span>) =&gt;</span> &#123;</div><div class="line">  <span class="keyword">if</span> (props.celsius &gt;= <span class="number">100</span>) &#123;</div><div class="line">    <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">p</span>&gt;</span>The water would boil.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">p</span>&gt;</span>The water would not boil.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">const</span> toCelsius = <span class="function"><span class="params">fahrenheit</span> =&gt;</span> (fahrenheit - <span class="number">32</span>) * <span class="number">5</span> / <span class="number">9</span></div><div class="line"></div><div class="line"><span class="keyword">const</span> toFahrenheit = <span class="function"><span class="params">celsius</span> =&gt;</span> (celsius * <span class="number">9</span> / <span class="number">5</span>) + <span class="number">32</span></div><div class="line"></div><div class="line"><span class="keyword">const</span> tryConvert = <span class="function">(<span class="params">value, convert</span>) =&gt;</span> &#123;</div><div class="line">  <span class="keyword">const</span> input = <span class="built_in">parseFloat</span>(value)</div><div class="line">  <span class="keyword">if</span> (<span class="built_in">Number</span>.isNaN(input)) &#123;</div><div class="line">    <span class="keyword">return</span> <span class="string">''</span></div><div class="line">  &#125;</div><div class="line">  <span class="keyword">const</span> output = convert(input)</div><div class="line">  <span class="keyword">const</span> rounded = <span class="built_in">Math</span>.round(output * <span class="number">1000</span>) / <span class="number">1000</span></div><div class="line">  <span class="keyword">return</span> rounded.toString()</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">Calculator</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</div><div class="line">  <span class="keyword">constructor</span>(props) &#123;</div><div class="line">    <span class="keyword">super</span>(props)</div><div class="line">    <span class="keyword">this</span>.handleCelsiusChange = <span class="keyword">this</span>.handleCelsiusChange.bind(<span class="keyword">this</span>)</div><div class="line">    <span class="keyword">this</span>.handleFahrenheitChange = <span class="keyword">this</span>.handleFahrenheitChange.bind(<span class="keyword">this</span>)</div><div class="line">    <span class="keyword">this</span>.state = &#123; <span class="attr">value</span>: <span class="string">''</span>, <span class="attr">scale</span>: <span class="string">'c'</span> &#125;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  handleCelsiusChange(value) &#123;</div><div class="line">    <span class="keyword">this</span>.setState(&#123; <span class="attr">scale</span>: <span class="string">'c'</span>, value &#125;)</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  handleFahrenheitChange(value) &#123;</div><div class="line">    <span class="keyword">this</span>.setState(&#123; <span class="attr">scale</span>: <span class="string">'f'</span>, value &#125;)</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  render() &#123;</div><div class="line">    <span class="keyword">const</span> scale = <span class="keyword">this</span>.state.scale</div><div class="line">    <span class="keyword">const</span> value = <span class="keyword">this</span>.state.value</div><div class="line">    <span class="keyword">const</span> celsius = scale === <span class="string">'f'</span> ? tryConvert(value, toCelsius) : value</div><div class="line">    <span class="keyword">const</span> fahrenheit = scale === <span class="string">'c'</span> ? tryConvert(value, toFahrenheit) : value</div><div class="line"></div><div class="line">    <span class="keyword">return</span> (</div><div class="line">      &lt;div&gt;</div><div class="line">        &lt;TemperatureInput</div><div class="line">          scale="c"</div><div class="line">          value=&#123;celsius&#125;</div><div class="line">          onChange=&#123;this.handleCelsiusChange&#125;</div><div class="line">        /&gt;</div><div class="line">        &lt;TemperatureInput</div><div class="line">          scale="f"</div><div class="line">          value=&#123;fahrenheit&#125;</div><div class="line">          onChange=&#123;this.handleFahrenheitChange&#125;</div><div class="line">        /&gt;</div><div class="line">        &lt;BoilingVerdict</div><div class="line">          celsius=&#123;parseFloat(celsius)&#125;</div><div class="line">        /&gt;</div><div class="line">      &lt;/div&gt;</div><div class="line">    )</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>子组件TemperatureInput.jsx</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span></div><div class="line"></div><div class="line"><span class="keyword">const</span> scaleNames = &#123;</div><div class="line">  <span class="attr">c</span>: <span class="string">'Celsius'</span>,</div><div class="line">  <span class="attr">f</span>: <span class="string">'Fahrenheit'</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">TemperatureInput</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</div><div class="line"></div><div class="line">  <span class="keyword">constructor</span>(props) &#123;</div><div class="line">    <span class="keyword">super</span>(props)</div><div class="line">    <span class="keyword">this</span>.handleChange = <span class="keyword">this</span>.handleChange.bind(<span class="keyword">this</span>)</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  handleChange(e) &#123;</div><div class="line">    <span class="keyword">this</span>.props.onChange(e.target.value)</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  render() &#123;</div><div class="line">    <span class="keyword">const</span> value = <span class="keyword">this</span>.props.value</div><div class="line">    <span class="keyword">const</span> scale = <span class="keyword">this</span>.props.scale</div><div class="line">    <span class="keyword">return</span> (</div><div class="line">      <span class="xml"><span class="tag">&lt;<span class="name">fieldset</span>&gt;</span></span></div><div class="line">        <span class="tag">&lt;<span class="name">legend</span>&gt;</span>Enter value in &#123;scaleNames[scale]&#125;:<span class="tag">&lt;/<span class="name">legend</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">input</span></span></div><div class="line">          <span class="attr">value</span>=<span class="string">&#123;value&#125;</span></div><div class="line">          <span class="attr">onChange</span>=<span class="string">&#123;this.handleChange&#125;</span></div><div class="line">        /&gt;</div><div class="line">      <span class="tag">&lt;/<span class="name">fieldset</span>&gt;</span></div><div class="line">    )</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>代码可见<a href="https://github.com/juncaixinchi/React-DE/tree/master/src/calculator" target="_blank" rel="external">Github</a></p>
+
+  	</div>
+	  
+	  <div class="article-tags tags">
+      
+        <a href="/Blogs/tags/JavaScript/">JavaScript</a>
+      
+        <a href="/Blogs/tags/React/">React</a>
+      
+        <a href="/Blogs/tags/state/">state</a>
+      
+	  </div>
+    
+	</section>
+	
+</article>
+
+      </div>
+      <aside class='l_side'>
+        
+  <section class='m_widget about'>
+
+<img class='avatar waves-image' src='/Blogs/images/avatar.jpg' />
+
+<div class='header'>俊采新驰</div>
+<div class='content'>
+<div></div>
+</div>
+</section>
+
+  
+<div class="m_widget tagcloud">
+    <div class="header">Tags</div>
+    <div class='content'>
+        <a href="/Blogs/tags/Blog/" style="font-size: 16px; color: #555">Blog</a> <a href="/Blogs/tags/Canvas/" style="font-size: 14px; color: #808080">Canvas</a> <a href="/Blogs/tags/Cheat-sheet/" style="font-size: 18px; color: #2b2b2b">Cheat-sheet</a> <a href="/Blogs/tags/Demo/" style="font-size: 14px; color: #808080">Demo</a> <a href="/Blogs/tags/ES6/" style="font-size: 16px; color: #555">ES6</a> <a href="/Blogs/tags/Game/" style="font-size: 14px; color: #808080">Game</a> <a href="/Blogs/tags/Git/" style="font-size: 16px; color: #555">Git</a> <a href="/Blogs/tags/GitHub-Pages/" style="font-size: 14px; color: #808080">GitHub Pages</a> <a href="/Blogs/tags/Github/" style="font-size: 16px; color: #555">Github</a> <a href="/Blogs/tags/Hexo/" style="font-size: 18px; color: #2b2b2b">Hexo</a> <a href="/Blogs/tags/JSX/" style="font-size: 14px; color: #808080">JSX</a> <a href="/Blogs/tags/JavaScript/" style="font-size: 20px; color: #000">JavaScript</a> <a href="/Blogs/tags/Linux/" style="font-size: 14px; color: #808080">Linux</a> <a href="/Blogs/tags/Markdown/" style="font-size: 14px; color: #808080">Markdown</a> <a href="/Blogs/tags/Next/" style="font-size: 14px; color: #808080">Next</a> <a href="/Blogs/tags/Node-js/" style="font-size: 14px; color: #808080">Node.js</a> <a href="/Blogs/tags/React/" style="font-size: 18px; color: #2b2b2b">React</a> <a href="/Blogs/tags/Vim/" style="font-size: 14px; color: #808080">Vim</a> <a href="/Blogs/tags/npm/" style="font-size: 14px; color: #808080">npm</a> <a href="/Blogs/tags/state/" style="font-size: 14px; color: #808080">state</a>
+    </div>
+</div>
+
+
+
+      </aside>
+      <script>setLoadingBarProgress(60);</script>
+    </div>
+  </div>
+  <footer id="footer" class="clearfix">
+
+	<div class="social-wrapper">
+  	
+      
+        <a href="https://github.com/juncaixinchi" class="social github"
+          target="_blank" rel="external">
+          <span class="icon icon-github"></span>
+        </a>
+      
+    
+  </div>
+  
+  <div>Theme <a href='https://github.com/stkevintan/hexo-theme-material-flow' class="codename">MaterialFlow</a> designed by <a href="http://keyin.me/" target="_blank">Kevin Tan</a>.</div>
+  
+</footer>
+
+
+  <script>setLoadingBarProgress(80);</script>
+  
+
+<script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src='//cdn.bootcss.com/node-waves/0.7.5/waves.min.js'></script>
+<script src="//cdn.bootcss.com/scrollReveal.js/3.3.2/scrollreveal.min.js"></script>
+<script src="/Blogs/js/jquery.fitvids.js"></script>
+<script>
+	var GOOGLE_CUSTOM_SEARCH_API_KEY = "";
+	var GOOGLE_CUSTOM_SEARCH_ENGINE_ID = "";
+	var ALGOLIA_API_KEY = "";
+	var ALGOLIA_APP_ID = "";
+	var ALGOLIA_INDEX_NAME = "";
+  var AZURE_SERVICE_NAME = "";
+  var AZURE_INDEX_NAME = "";
+  var AZURE_QUERY_KEY = "";
+  var BAIDU_API_ID = "";
+  var SEARCH_SERVICE = "hexo";
+  var ROOT = "/Blogs/"||"/";
+  if(!ROOT.endsWith('/'))ROOT += '/';
+</script>
+<script src="/Blogs/js/search.js"></script>
+<script src="/Blogs/js/app.js"></script>
+
+
+  <script>setLoadingBarProgress(100);</script>
+</body>
+</html>
