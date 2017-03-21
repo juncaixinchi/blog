@@ -5,7 +5,7 @@
   <link href="/Blogs/atom.xml" rel="self"/>
   
   <link href="https://juncaixinchi.github.io/Blogs/"/>
-  <updated>2017-03-21T03:30:53.823Z</updated>
+  <updated>2017-03-20T14:58:28.258Z</updated>
   <id>https://juncaixinchi.github.io/Blogs/</id>
   
   <author>
@@ -16,31 +16,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Hello World</title>
-    <link href="https://juncaixinchi.github.io/Blogs/2017/03/21/hello-world/"/>
-    <id>https://juncaixinchi.github.io/Blogs/2017/03/21/hello-world/</id>
-    <published>2017-03-21T03:30:53.823Z</published>
-    <updated>2017-03-21T03:30:53.823Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;https://hexo.io/docs/troubleshooting.html&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Hexo" scheme="https://juncaixinchi.github.io/Blogs/tags/Hexo/"/>
-    
-      <category term="Cheat-sheet" scheme="https://juncaixinchi.github.io/Blogs/tags/Cheat-sheet/"/>
-    
-  </entry>
-  
-  <entry>
     <title>npm-mirror</title>
     <link href="https://juncaixinchi.github.io/Blogs/2017/03/20/npm-mirror/"/>
     <id>https://juncaixinchi.github.io/Blogs/2017/03/20/npm-mirror/</id>
     <published>2017-03-20T14:55:06.000Z</published>
-    <updated>2017-03-21T03:30:53.823Z</updated>
+    <updated>2017-03-20T14:58:28.258Z</updated>
     
     <summary type="html">
     
@@ -58,7 +38,7 @@
     <link href="https://juncaixinchi.github.io/Blogs/2017/03/19/React-Develop-Environment/"/>
     <id>https://juncaixinchi.github.io/Blogs/2017/03/19/React-Develop-Environment/</id>
     <published>2017-03-19T12:43:19.000Z</published>
-    <updated>2017-03-21T03:30:53.823Z</updated>
+    <updated>2017-03-19T13:21:40.080Z</updated>
     
     <summary type="html">
     
@@ -76,7 +56,7 @@
     <link href="https://juncaixinchi.github.io/Blogs/2017/03/18/Vim-Setting/"/>
     <id>https://juncaixinchi.github.io/Blogs/2017/03/18/Vim-Setting/</id>
     <published>2017-03-18T12:57:18.000Z</published>
-    <updated>2017-03-21T03:30:53.823Z</updated>
+    <updated>2017-03-18T13:57:05.035Z</updated>
     
     <summary type="html">
     
@@ -96,7 +76,7 @@
     <link href="https://juncaixinchi.github.io/Blogs/2017/03/10/Lifting-State-Up/"/>
     <id>https://juncaixinchi.github.io/Blogs/2017/03/10/Lifting-State-Up/</id>
     <published>2017-03-10T13:25:41.000Z</published>
-    <updated>2017-03-21T03:30:53.823Z</updated>
+    <updated>2017-03-16T12:40:06.625Z</updated>
     
     <summary type="html">
     
@@ -105,9 +85,9 @@
     </summary>
     
     
-      <category term="React" scheme="https://juncaixinchi.github.io/Blogs/tags/React/"/>
-    
       <category term="JavaScript" scheme="https://juncaixinchi.github.io/Blogs/tags/JavaScript/"/>
+    
+      <category term="React" scheme="https://juncaixinchi.github.io/Blogs/tags/React/"/>
     
       <category term="state" scheme="https://juncaixinchi.github.io/Blogs/tags/state/"/>
     
@@ -118,7 +98,7 @@
     <link href="https://juncaixinchi.github.io/Blogs/2017/03/04/JSX-Syntax/"/>
     <id>https://juncaixinchi.github.io/Blogs/2017/03/04/JSX-Syntax/</id>
     <published>2017-03-04T11:26:35.000Z</published>
-    <updated>2017-03-21T03:30:53.823Z</updated>
+    <updated>2017-03-04T14:30:23.194Z</updated>
     
     <summary type="html">
     
@@ -127,11 +107,11 @@
     </summary>
     
     
+      <category term="JavaScript" scheme="https://juncaixinchi.github.io/Blogs/tags/JavaScript/"/>
+    
       <category term="React" scheme="https://juncaixinchi.github.io/Blogs/tags/React/"/>
     
       <category term="JSX" scheme="https://juncaixinchi.github.io/Blogs/tags/JSX/"/>
-    
-      <category term="JavaScript" scheme="https://juncaixinchi.github.io/Blogs/tags/JavaScript/"/>
     
   </entry>
   
@@ -140,7 +120,7 @@
     <link href="https://juncaixinchi.github.io/Blogs/2017/03/02/ECMAScript-6-note/"/>
     <id>https://juncaixinchi.github.io/Blogs/2017/03/02/ECMAScript-6-note/</id>
     <published>2017-03-02T12:38:44.000Z</published>
-    <updated>2017-03-21T03:30:53.811Z</updated>
+    <updated>2017-03-04T14:30:19.645Z</updated>
     
     <summary type="html">
     
@@ -161,7 +141,7 @@
     <link href="https://juncaixinchi.github.io/Blogs/2017/02/22/Javascript-note/"/>
     <id>https://juncaixinchi.github.io/Blogs/2017/02/22/Javascript-note/</id>
     <published>2017-02-22T13:57:57.000Z</published>
-    <updated>2017-03-21T03:30:53.823Z</updated>
+    <updated>2017-03-04T14:30:24.963Z</updated>
     
     <summary type="html">
     
@@ -182,7 +162,7 @@
     <link href="https://juncaixinchi.github.io/Blogs/2017/02/18/Simple-Canvas-Game/"/>
     <id>https://juncaixinchi.github.io/Blogs/2017/02/18/Simple-Canvas-Game/</id>
     <published>2017-02-18T15:10:08.000Z</published>
-    <updated>2017-03-21T03:30:53.823Z</updated>
+    <updated>2017-02-18T15:28:21.734Z</updated>
     
     <summary type="html">
     
@@ -204,7 +184,7 @@
     <link href="https://juncaixinchi.github.io/Blogs/2017/02/14/Git-note/"/>
     <id>https://juncaixinchi.github.io/Blogs/2017/02/14/Git-note/</id>
     <published>2017-02-14T11:36:07.000Z</published>
-    <updated>2017-03-21T03:30:53.823Z</updated>
+    <updated>2017-02-18T15:18:49.945Z</updated>
     
     <summary type="html">
     
@@ -224,7 +204,7 @@
     <link href="https://juncaixinchi.github.io/Blogs/2017/02/14/Blog-driven-by-hexo/"/>
     <id>https://juncaixinchi.github.io/Blogs/2017/02/14/Blog-driven-by-hexo/</id>
     <published>2017-02-14T08:24:56.000Z</published>
-    <updated>2017-03-21T03:30:53.811Z</updated>
+    <updated>2017-03-06T14:34:40.293Z</updated>
     
     <summary type="html">
     
@@ -256,7 +236,7 @@
     <link href="https://juncaixinchi.github.io/Blogs/2017/02/12/Github-Git-Cheat-Sheet/"/>
     <id>https://juncaixinchi.github.io/Blogs/2017/02/12/Github-Git-Cheat-Sheet/</id>
     <published>2017-02-12T08:42:19.000Z</published>
-    <updated>2017-03-21T03:30:53.823Z</updated>
+    <updated>2017-03-04T14:30:33.516Z</updated>
     
     <summary type="html">
     
@@ -286,7 +266,7 @@
     <link href="https://juncaixinchi.github.io/Blogs/2017/02/12/Todo-List/"/>
     <id>https://juncaixinchi.github.io/Blogs/2017/02/12/Todo-List/</id>
     <published>2017-02-12T08:42:01.000Z</published>
-    <updated>2017-03-21T03:30:53.823Z</updated>
+    <updated>2017-03-04T14:32:06.971Z</updated>
     
     <summary type="html">
     
@@ -304,7 +284,7 @@
     <link href="https://juncaixinchi.github.io/Blogs/2017/02/12/Markdown-note/"/>
     <id>https://juncaixinchi.github.io/Blogs/2017/02/12/Markdown-note/</id>
     <published>2017-02-12T08:41:46.000Z</published>
-    <updated>2017-03-21T03:30:53.823Z</updated>
+    <updated>2017-03-04T14:31:41.018Z</updated>
     
     <summary type="html">
     
@@ -324,7 +304,7 @@
     <link href="https://juncaixinchi.github.io/Blogs/2017/02/12/node-install-note/"/>
     <id>https://juncaixinchi.github.io/Blogs/2017/02/12/node-install-note/</id>
     <published>2017-02-12T08:39:15.000Z</published>
-    <updated>2017-03-21T03:30:53.823Z</updated>
+    <updated>2017-03-04T14:32:01.365Z</updated>
     
     <summary type="html">
     
@@ -342,7 +322,7 @@
     <link href="https://juncaixinchi.github.io/Blogs/2017/02/12/Hello-Hexo/"/>
     <id>https://juncaixinchi.github.io/Blogs/2017/02/12/Hello-Hexo/</id>
     <published>2017-02-12T08:24:56.000Z</published>
-    <updated>2017-03-21T03:30:53.823Z</updated>
+    <updated>2017-03-04T14:31:29.091Z</updated>
     
     <summary type="html">
     
@@ -353,6 +333,26 @@
     
     
       <category term="Hexo" scheme="https://juncaixinchi.github.io/Blogs/tags/Hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="https://juncaixinchi.github.io/Blogs/2017/02/12/hello-world/"/>
+    <id>https://juncaixinchi.github.io/Blogs/2017/02/12/hello-world/</id>
+    <published>2017-02-12T08:20:13.445Z</published>
+    <updated>2017-03-04T14:31:15.498Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;https://hexo.io/docs/troubleshooting.html&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Hexo" scheme="https://juncaixinchi.github.io/Blogs/tags/Hexo/"/>
+    
+      <category term="Cheat-sheet" scheme="https://juncaixinchi.github.io/Blogs/tags/Cheat-sheet/"/>
     
   </entry>
   

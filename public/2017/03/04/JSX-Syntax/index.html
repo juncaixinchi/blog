@@ -18,7 +18,7 @@
 <meta property="og:url" content="https://juncaixinchi.github.io/Blogs/2017/03/04/JSX-Syntax/index.html">
 <meta property="og:site_name" content="俊采新驰">
 <meta property="og:description" content="JSX 语法JSX是React的核心组成部分，它使用XML标记的方式去直接声明界面，界面组件之间可以互相嵌套。可以理解为在JS中编写与XML类似的语言,一种定义带属性树结构（DOM结构）的语法，它的目的不是要在浏览器或者引擎中实现，它的目的是通过各种编译器将这些标记编译成标准的JS语言。">
-<meta property="og:updated_time" content="2017-03-21T03:30:53.823Z">
+<meta property="og:updated_time" content="2017-03-04T14:30:23.194Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JSX-Syntax">
 <meta name="twitter:description" content="JSX 语法JSX是React的核心组成部分，它使用XML标记的方式去直接声明界面，界面组件之间可以互相嵌套。可以理解为在JS中编写与XML类似的语言,一种定义带属性树结构（DOM结构）的语法，它的目的不是要在浏览器或者引擎中实现，它的目的是通过各种编译器将这些标记编译成标准的JS语言。">
@@ -133,7 +133,7 @@
     	<h1 id="JSX-语法"><a href="#JSX-语法" class="headerlink" title="JSX 语法"></a>JSX 语法</h1><p>JSX是React的核心组成部分，它使用XML标记的方式去直接声明界面，界面组件之间可以互相嵌套。可以理解为在JS中编写与XML类似的语言,一种定义带属性树结构（DOM结构）的语法，它的目的不是要在浏览器或者引擎中实现，它的目的是通过各种编译器将这些标记编译成标准的JS语言。</p>
 <a id="more"></a>
 <h2 id="Hello-World"><a href="#Hello-World" class="headerlink" title="Hello World"></a>Hello World</h2><p>首先是官网的例子helloworld，其中<code>&lt;h1&gt;Hello, world!&lt;/h1&gt;</code>就是使用到了JSX语法。HTML 语言直接写在 JavaScript 语言之中，不加任何引号，这就是 JSX 的语法，它允许 HTML 与 JavaScript 的混写。</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span> /&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>Hello React!<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"vendor-js/react.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"vendor-js/react-dom.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"vendor-js/babel-core/browser.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"example"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/babel"</span>&gt;</span><span class="xml"></span></div><div class="line">    ReactDOM.render(</div><div class="line">      <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello, world!<span class="tag">&lt;/<span class="name">h1</span>&gt;</span>,</div><div class="line">      document.getElementById('example')</div><div class="line">    );</div><div class="line">  <span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span> /&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>Hello React!<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"vendor-js/react.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"vendor-js/react-dom.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"vendor-js/babel-core/browser.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"example"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/babel"</span>&gt;</span><span class="javascript"></span></div><div class="line">    ReactDOM.render(</div><div class="line">      <span class="xml"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello, world!<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span>,</div><div class="line">      <span class="built_in">document</span>.getElementById(<span class="string">'example'</span>)</div><div class="line">    );</div><div class="line">  <span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
 <p>在上述JSX语法中要注意的地方：</p>
 <ul>
 <li><code>&lt;script&gt;</code> 标签的 type 属性为 <code>text/babel</code>，这是React 独有的 JSX 语法，跟 JavaScript 不兼容。凡是在页面中直接使用 JSX 的地方，都要加上 <code>type=&quot;text/babel&quot;</code>。</li>
@@ -235,11 +235,11 @@
 	  
 	  <div class="article-tags tags">
       
+        <a href="/Blogs/tags/JavaScript/">JavaScript</a>
+      
         <a href="/Blogs/tags/React/">React</a>
       
         <a href="/Blogs/tags/JSX/">JSX</a>
-      
-        <a href="/Blogs/tags/JavaScript/">JavaScript</a>
       
 	  </div>
     
@@ -279,19 +279,9 @@
 	<div class="social-wrapper">
   	
       
-        <a href="https://github.com/xxxx" class="social github"
+        <a href="https://github.com/juncaixinchi" class="social github"
           target="_blank" rel="external">
           <span class="icon icon-github"></span>
-        </a>
-      
-        <a href="https://twitter.com/xxxx" class="social twitter"
-          target="_blank" rel="external">
-          <span class="icon icon-twitter"></span>
-        </a>
-      
-        <a href="/atom.xml" class="social rss"
-          target="_blank" rel="external">
-          <span class="icon icon-rss"></span>
         </a>
       
     
