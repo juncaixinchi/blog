@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   
-  <title>npm-mirror | 俊采新驰</title>
+  <title>npm and googleapis mirror | 俊采新驰</title>
   <meta name="description" content="不知疲倦的翻越，每一个山丘！" />
   <meta name="keywords" content="俊采新驰" />
   <meta name="HandheldFriendly" content="True" />
@@ -14,17 +14,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="最近家里网络很糟糕，上不了npm，很是纠结，于是修改设置使用国内的taobao镜像">
 <meta property="og:type" content="article">
-<meta property="og:title" content="npm-mirror">
+<meta property="og:title" content="npm and googleapis mirror">
 <meta property="og:url" content="https://juncaixinchi.github.io/Blogs/2017/03/20/npm-mirror/index.html">
 <meta property="og:site_name" content="俊采新驰">
 <meta property="og:description" content="最近家里网络很糟糕，上不了npm，很是纠结，于是修改设置使用国内的taobao镜像">
-<meta property="og:updated_time" content="2017-03-20T14:58:28.258Z">
+<meta property="og:updated_time" content="2017-03-21T13:23:17.759Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="npm-mirror">
+<meta name="twitter:title" content="npm and googleapis mirror">
 <meta name="twitter:description" content="最近家里网络很糟糕，上不了npm，很是纠结，于是修改设置使用国内的taobao镜像">
     
-  <link href="https://fonts.googleapis.com/css?family=Inconsolata|Titillium+Web" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+  <link href="https://fonts.lug.ustc.edu.cn/css?family=Inconsolata|Titillium+Web" rel="stylesheet">
+  <link href="https://fonts.lug.ustc.edu.cn/css?family=Roboto+Mono" rel="stylesheet">
   <link href='//cdn.bootcss.com/node-waves/0.7.5/waves.min.css' rel='stylesheet'>
   <link rel="stylesheet" href="/Blogs/style.css">
   
@@ -117,7 +117,7 @@
 	<section class='meta'>
 	<h2 class="title">
   	<a href="/Blogs/2017/03/20/npm-mirror/">
-    	npm-mirror
+    	npm and googleapis mirror
     </a>
   </h2>
 	<time>
@@ -126,13 +126,13 @@
 	
 	</section>
 	
-		<section class="tog"></section>
+		<section class="tog"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#NPM"><span class="toc-number">1.</span> <span class="toc-text">NPM</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#googleapis"><span class="toc-number">2.</span> <span class="toc-text">googleapis</span></a></li></ol></section>
 	
 	<section class="article typo">
   	<div class="article-entry" itemprop="articleBody">
     	<p>最近家里网络很糟糕，上不了npm，很是纠结，于是修改设置使用国内的taobao镜像</p>
 <a id="more"></a>
-<p>镜像使用方法（三种办法任意一种都能解决问题，建议使用第三种，将配置写死，下次用的时候配置还在）:</p>
+<h2 id="NPM"><a href="#NPM" class="headerlink" title="NPM"></a>NPM</h2><p>镜像使用方法（三种办法任意一种都能解决问题，建议使用第三种，将配置写死，下次用的时候配置还在）:</p>
 <p>1.通过config命令</p>
 <pre><code>npm config set registry https://registry.npm.taobao.org 
 npm info underscore （如果上面配置正确这个命令会有字符串response）
@@ -142,12 +142,15 @@ npm info underscore （如果上面配置正确这个命令会有字符串respon
 <pre><code>registry = https://registry.npm.taobao.org
 </code></pre><p>搜索镜像: <a href="https://npm.taobao.org" target="_blank" rel="external">https://npm.taobao.org</a></p>
 <p>建立或使用镜像,参考: <a href="https://github.com/cnpm/cnpmjs.org" target="_blank" rel="external">https://github.com/cnpm/cnpmjs.org</a></p>
-
+<h2 id="googleapis"><a href="#googleapis" class="headerlink" title="googleapis"></a>googleapis</h2><p>另外google的字体也需要国内镜像，可以考虑中科大的镜像服务<a href="fonts.lug.ustc.edu.cn">LUG</a>，在源代码内做以下替换即可</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ajax.googleapis.com =&gt; ajax.lug.ustc.edu.cn</div><div class="line">fonts.googleapis.com =&gt; fonts.lug.ustc.edu.cn</div><div class="line">themes.googleusercontent.com =&gt; google-themes.lug.ustc.edu.cn</div></pre></td></tr></table></figure>
   	</div>
 	  
 	  <div class="article-tags tags">
       
         <a href="/Blogs/tags/npm/">npm</a>
+      
+        <a href="/Blogs/tags/googleapis/">googleapis</a>
       
 	  </div>
     
@@ -172,7 +175,7 @@ npm info underscore （如果上面配置正确这个命令会有字符串respon
 <div class="m_widget tagcloud">
     <div class="header">Tags</div>
     <div class='content'>
-        <a href="/Blogs/tags/Blog/" style="font-size: 16px; color: #555">Blog</a> <a href="/Blogs/tags/Canvas/" style="font-size: 14px; color: #808080">Canvas</a> <a href="/Blogs/tags/Cheat-sheet/" style="font-size: 18px; color: #2b2b2b">Cheat-sheet</a> <a href="/Blogs/tags/Demo/" style="font-size: 14px; color: #808080">Demo</a> <a href="/Blogs/tags/ES6/" style="font-size: 16px; color: #555">ES6</a> <a href="/Blogs/tags/Game/" style="font-size: 14px; color: #808080">Game</a> <a href="/Blogs/tags/Git/" style="font-size: 16px; color: #555">Git</a> <a href="/Blogs/tags/GitHub-Pages/" style="font-size: 14px; color: #808080">GitHub Pages</a> <a href="/Blogs/tags/Github/" style="font-size: 16px; color: #555">Github</a> <a href="/Blogs/tags/Hexo/" style="font-size: 18px; color: #2b2b2b">Hexo</a> <a href="/Blogs/tags/JSX/" style="font-size: 14px; color: #808080">JSX</a> <a href="/Blogs/tags/JavaScript/" style="font-size: 20px; color: #000">JavaScript</a> <a href="/Blogs/tags/Linux/" style="font-size: 14px; color: #808080">Linux</a> <a href="/Blogs/tags/Markdown/" style="font-size: 14px; color: #808080">Markdown</a> <a href="/Blogs/tags/Next/" style="font-size: 14px; color: #808080">Next</a> <a href="/Blogs/tags/Node-js/" style="font-size: 14px; color: #808080">Node.js</a> <a href="/Blogs/tags/React/" style="font-size: 18px; color: #2b2b2b">React</a> <a href="/Blogs/tags/Vim/" style="font-size: 14px; color: #808080">Vim</a> <a href="/Blogs/tags/npm/" style="font-size: 14px; color: #808080">npm</a> <a href="/Blogs/tags/state/" style="font-size: 14px; color: #808080">state</a>
+        <a href="/Blogs/tags/Blog/" style="font-size: 16px; color: #555">Blog</a> <a href="/Blogs/tags/Canvas/" style="font-size: 14px; color: #808080">Canvas</a> <a href="/Blogs/tags/Cheat-sheet/" style="font-size: 18px; color: #2b2b2b">Cheat-sheet</a> <a href="/Blogs/tags/Demo/" style="font-size: 14px; color: #808080">Demo</a> <a href="/Blogs/tags/ES6/" style="font-size: 16px; color: #555">ES6</a> <a href="/Blogs/tags/Game/" style="font-size: 14px; color: #808080">Game</a> <a href="/Blogs/tags/Git/" style="font-size: 16px; color: #555">Git</a> <a href="/Blogs/tags/GitHub-Pages/" style="font-size: 14px; color: #808080">GitHub Pages</a> <a href="/Blogs/tags/Github/" style="font-size: 16px; color: #555">Github</a> <a href="/Blogs/tags/Hexo/" style="font-size: 18px; color: #2b2b2b">Hexo</a> <a href="/Blogs/tags/JSX/" style="font-size: 14px; color: #808080">JSX</a> <a href="/Blogs/tags/JavaScript/" style="font-size: 20px; color: #000">JavaScript</a> <a href="/Blogs/tags/Linux/" style="font-size: 14px; color: #808080">Linux</a> <a href="/Blogs/tags/Markdown/" style="font-size: 14px; color: #808080">Markdown</a> <a href="/Blogs/tags/Next/" style="font-size: 14px; color: #808080">Next</a> <a href="/Blogs/tags/Node-js/" style="font-size: 14px; color: #808080">Node.js</a> <a href="/Blogs/tags/React/" style="font-size: 18px; color: #2b2b2b">React</a> <a href="/Blogs/tags/Vim/" style="font-size: 14px; color: #808080">Vim</a> <a href="/Blogs/tags/googleapis/" style="font-size: 14px; color: #808080">googleapis</a> <a href="/Blogs/tags/npm/" style="font-size: 14px; color: #808080">npm</a> <a href="/Blogs/tags/state/" style="font-size: 14px; color: #808080">state</a>
     </div>
 </div>
 

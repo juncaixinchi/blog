@@ -5,7 +5,7 @@
   <link href="/Blogs/atom.xml" rel="self"/>
   
   <link href="https://juncaixinchi.github.io/Blogs/"/>
-  <updated>2017-03-20T14:58:28.258Z</updated>
+  <updated>2017-03-21T13:23:17.759Z</updated>
   <id>https://juncaixinchi.github.io/Blogs/</id>
   
   <author>
@@ -16,11 +16,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>npm-mirror</title>
+    <title>npm and googleapis mirror</title>
     <link href="https://juncaixinchi.github.io/Blogs/2017/03/20/npm-mirror/"/>
     <id>https://juncaixinchi.github.io/Blogs/2017/03/20/npm-mirror/</id>
     <published>2017-03-20T14:55:06.000Z</published>
-    <updated>2017-03-20T14:58:28.258Z</updated>
+    <updated>2017-03-21T13:23:17.759Z</updated>
     
     <summary type="html">
     
@@ -30,6 +30,8 @@
     
     
       <category term="npm" scheme="https://juncaixinchi.github.io/Blogs/tags/npm/"/>
+    
+      <category term="googleapis" scheme="https://juncaixinchi.github.io/Blogs/tags/googleapis/"/>
     
   </entry>
   
@@ -350,9 +352,9 @@
     </summary>
     
     
-      <category term="Hexo" scheme="https://juncaixinchi.github.io/Blogs/tags/Hexo/"/>
-    
       <category term="Cheat-sheet" scheme="https://juncaixinchi.github.io/Blogs/tags/Cheat-sheet/"/>
+    
+      <category term="Hexo" scheme="https://juncaixinchi.github.io/Blogs/tags/Hexo/"/>
     
   </entry>
   
