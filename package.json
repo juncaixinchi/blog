@@ -7,7 +7,6 @@
   },
   "dependencies": {
     "hexo": "^3.2.0",
-    "hexo-all-minifier": "0.0.14",
     "hexo-autoprefixer": "^1.0.0",
     "hexo-deployer-git": "^0.2.0",
     "hexo-generator-archive": "^0.1.4",
