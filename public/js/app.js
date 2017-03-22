@@ -152,9 +152,25 @@ var customSearch;
 	function getHitokoto() {
 		const $hitokoto = $('#hitokoto');
 		if($hitokoto.length === 0) return;
-		const url = 'https://api.hitokoto.us:214/rand?length=80&encode=jsc&fun=handlerHitokoto';
-		$('body').append('<script	src="%s"></script>'.replace('%s',url));
-		window.handlerHitokoto = (data) => {
+
+		$.ajax({
+			type: "GET",
+			url: "hitokoto.json",
+			data: {},
+			dataType: "json",
+			cache:false,
+			success: function(data){
+				let key=Object.keys(data);
+				let num=Math.round(Math.random()*200);
+				let skey=key[num];
+				handlerHitokoto(data[key[num]]);
+			},
+			error: function (msg) {
+				console.log(msg);
+			}
+		});
+		
+		const handlerHitokoto = (data) => {
 			$hitokoto
 				.css('color','transparent')
 				.text(data.hitokoto)
