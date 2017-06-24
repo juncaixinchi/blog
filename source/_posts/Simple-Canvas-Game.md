@@ -14,12 +14,12 @@ tags:
 ## 1. 创建一个Canvas对象
 
 ```javascript
-    // Create the canvas
-    var canvas = document.createElement("canvas");
-    var ctx = canvas.getContext("2d");
-    canvas.width = 512;
-    canvas.height = 480;
-    document.body.appendChild(canvas);
+// Create the canvas
+var canvas = document.createElement("canvas");
+var ctx = canvas.getContext("2d");
+canvas.width = 512;
+canvas.height = 480;
+document.body.appendChild(canvas);
 ```
 
 我们首先要做的是创建一个canvas对象。可以用JavaScript或HTML来做，都非常简单。此处我用的是JS。当创建了canvas之后，我们就可以获取它的上下文对象（context）、设置尺寸，并且把它加到当前文档中。
