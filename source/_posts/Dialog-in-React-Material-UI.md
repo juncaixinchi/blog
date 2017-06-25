@@ -11,6 +11,8 @@ tags:
 
 * dialog是常见组件，前段时间研究了一下[Material-UI]()的Dialog组件的代码
 
+<!-- more -->
+
 ## 自己写的dialog
 
 ```jsx

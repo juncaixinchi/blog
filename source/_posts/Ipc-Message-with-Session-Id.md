@@ -10,6 +10,8 @@ tags:
 
 * 适用于多组件可能重复发送相同message的情况，如同一页面同时载入多张图片等情况。
 
+<!-- more -->
+
 ```js
 import UUID from 'node-uuid'
 import { ipcRenderer } from electron

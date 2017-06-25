@@ -14,6 +14,7 @@ Git是一个开源的分布式版本控制系统，方便你在笔记本或桌�
 
 转载自[GitHub Git 备忘单](https://services.github.com/on-demand/downloads/zh_CN/github-git-cheat-sheet/)
 
+<!-- more -->
 
 ## 要点
 

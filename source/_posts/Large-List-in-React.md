@@ -14,6 +14,8 @@ tags:
 
 	2. 局部加载: 每次计算当前页面应当展示的内容
 
+<!-- more -->
+
 ## [react-virtualized](https://github.com/bvaughn/react-virtualized)
 
 * react-virtualized list 是一个对付超大列表很有用的react组件

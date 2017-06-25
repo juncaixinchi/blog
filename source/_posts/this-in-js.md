@@ -9,6 +9,8 @@ tags:
 
 this是Javascript中的一个关键字，它代表函数运行时，自动生成的一个内部对象，指向调用函数的那个对象
 
+<!-- more -->
+
 ### 两个例子
 
 首先来看几个例子，改编自阮一峰老师的[博客](http://www.ruanyifeng.com/blog/2009/08/learning_javascript_closures.html)
