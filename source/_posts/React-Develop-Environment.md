@@ -2,7 +2,7 @@
 title: React-Develop-Environment
 date: 2017-03-19 20:43:19
 tags:
-	- React
+    - React
 ---
 
 # 搭建React开发环境

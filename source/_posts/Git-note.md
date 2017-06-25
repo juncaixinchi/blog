@@ -2,8 +2,8 @@
 title: Git_note
 date: 2017-02-14 19:36:07
 tags: 
-- Git
-- Github
+    - Git
+    - Github
 ---
 Git note
 ===
