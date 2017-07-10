@@ -2,6 +2,8 @@
 title: Brtfs Filesystem
 date: 2017-07-05 19:06:28
 tags:
+	- Brtfs
+	- Linux
 ---
 
 # Btrfs文件系统
@@ -73,16 +75,16 @@ Node size:          16384
 Sector size:        4096
 Filesystem size:    20.00GiB
 Block group profiles:
-  Data:             RAID1             1.01GiB
-  Metadata:         RAID1             1.01GiB
-  System:           RAID1            12.00MiB
+Data:             RAID1             1.01GiB
+Metadata:         RAID1             1.01GiB
+System:           RAID1            12.00MiB
 SSD detected:       no
 Incompat features:  extref, skinny-metadata
 Number of devices:  2
 Devices:
-   ID        SIZE  PATH
-    1    10.00GiB  /dev/sdb
-    2    10.00GiB  /dev/sdc
+ID        SIZE  PATH
+1    10.00GiB  /dev/sdb
+2    10.00GiB  /dev/sdc
 ```
 
 * 创建RAID10阵列，需要至少四个盘
@@ -101,18 +103,18 @@ Node size:          16384
 Sector size:        4096
 Filesystem size:    40.00GiB
 Block group profiles:
-  Data:             RAID10            2.01GiB
-  Metadata:         RAID10            2.01GiB
-  System:           RAID10           20.00MiB
+Data:             RAID10            2.01GiB
+Metadata:         RAID10            2.01GiB
+System:           RAID10           20.00MiB
 SSD detected:       no
 Incompat features:  extref, skinny-metadata
 Number of devices:  4
 Devices:
-   ID        SIZE  PATH
-    1    10.00GiB  /dev/sdb
-    2    10.00GiB  /dev/sdd
-    3    10.00GiB  /dev/sde
-    4    10.00GiB  /dev/sdf
+ID        SIZE  PATH
+1    10.00GiB  /dev/sdb
+2    10.00GiB  /dev/sdd
+3    10.00GiB  /dev/sde
+4    10.00GiB  /dev/sdf
 
 ```
 
@@ -143,20 +145,19 @@ GlobalReserve, single: total=16.00MiB, used=0.00B
 warning, device 2 is missing
 warning devid 2 not found already
 Label: none  uuid: 5f1e8ab4-bcd7-42f6-9aee-53acabfdce8c
-        Total devices 2 FS bytes used 1.38MiB
-        devid    1 size 10.00GiB used 2.04GiB path /dev/sdb
-        *** Some devices missing
+Total devices 2 FS bytes used 1.38MiB
+devid    1 size 10.00GiB used 2.04GiB path /dev/sdb
+*** Some devices missing
 
 ```
 * 磁盘缺失的情况，同时mount时会报错
 
 ```
 mount: wrong fs type, bad option, bad superblock on /dev/sdb,
-       missing codepage or helper program, or other error
+missing codepage or helper program, or other error
 
-       In some cases useful info is found in syslog - try
-       dmesg | tail or so.
-
+In some cases useful info is found in syslog - try
+dmesg | tail or so.
 ```
 
 * 出现磁盘缺失的情况，需要在降级模式下挂载raid1或raid10阵列，
@@ -168,17 +169,27 @@ mount -odegraded /dev/sdb /mnt
 * 加入新盘替代missing的device, start 后面指定missing的磁盘序列号（如何在复杂情况下找到实际缺失的序列号是个问题）
 
 ```
-sudo btrfs replace start 2 -f /dev/sdf /mnt
+btrfs replace start 2 -f /dev/sdf /mnt
 ```
 
-* 添加新的盘入磁盘阵列
+* 添加新盘后，metadata等只在一个盘上，故需要balance
+
+```
+btrfs filesystem balance /mnt
+```
+
+* 出现磁盘缺失时，也可以先添加新的替代盘，再删除missing的磁盘
 
 ```
 btrfs dev add -f /dev/sdc /mnt
+btrfs device delete missing /mnt
+btrfs filesystem balance /mnt
 ```
-* 添加新盘后。metadata等只在一个盘上，故需要balance
+
+* 单纯添加新的盘入磁盘阵列
 
 ```
+btrfs dev add -f /dev/sdc /mnt
 btrfs filesystem balance /mnt
 ```
 
@@ -194,4 +205,10 @@ btrfs device delete /dev/sdc /mnt
 mount /dev/sdb /mnt
 btrfs device add /dev/sdc /mnt
 btrfs balance start -dconvert=raid1 -mconvert=raid1 /mnt
+```
+
+* 从损坏的btrfs文件系统中restore数据
+
+```
+btrfs restore /dev/sdd ~/pathToRestoreFile
 ```
