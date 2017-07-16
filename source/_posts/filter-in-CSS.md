@@ -27,7 +27,7 @@ img {
 
 主要有以下10种功能：
 
-![filter results](../images/filter.png)
+![filter results](/Blogs/img/filter.png)
 
 * blur: 虚化
 
