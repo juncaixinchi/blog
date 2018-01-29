@@ -17,9 +17,14 @@ import UUID from 'node-uuid'
 import { ipcRenderer } from electron
 
 //	...
-	this.session = UUID.v4()
-	this.digest = this.props.items[currentIndex][0]
-	this.photo = this.props.items[currentIndex][1]
-	this.props.ipcRenderer.send('mediaShowThumb', this.session, this.digest, 210, 210)
+    const session = UUID.v4()
+	const { digest } = photo
+	ipcRenderer.send('mediaShowThumb', session, digest, 200, 200)
+
+	ipcRenderer.on('getThumbSuccess', (event, data) => {
+	  if (data && session === data.session) {
+       // blabla
+      }
+	})
 //	...
 ```
