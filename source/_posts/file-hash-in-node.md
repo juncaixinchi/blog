@@ -11,6 +11,8 @@ tags:
 
 用`readStream`的方式读取文件并同时使用`crypto.createHash`计算hash值。
 
+<!-- more -->
+
 ```js
 /*
  * usage: node hash.js fileToHash
