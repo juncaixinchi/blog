@@ -2,7 +2,7 @@
 title: Import vs Require
 date: 2018-03-18 22:42:41
 tags:
-    -- Node.js
+    - Node.js
 ---
 
 node编程中最重要的思想之一就是模块，而正是这个思想，让JavaScript的大规模工程成为可能。

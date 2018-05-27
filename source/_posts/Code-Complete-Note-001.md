@@ -2,7 +2,7 @@
 title: Code Complete Note 001
 date: 2018-05-27 22:13:54
 tags:
-    -- Code Complete
+    - Code Complete
 ---
 
 # 代码大全读书笔记001-变量名的力量

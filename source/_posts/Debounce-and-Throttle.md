@@ -2,7 +2,7 @@
 title: Debounce and Throttle
 date: 2018-03-25 22:02:50
 tags: 
-    --JavaScript
+    - JavaScript
 ---
 
 防抖（Debounce）和节流（Throttle）都是用来控制某个函数在一定时间内执行多少次的技巧
